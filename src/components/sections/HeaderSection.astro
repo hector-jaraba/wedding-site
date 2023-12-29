@@ -1,0 +1,26 @@
+---
+import Navigation from "../svelte/Navigation.svelte";
+import Logo from "../Logo.astro";
+---
+
+<header class="nav-container">
+  <div>
+    <Logo />
+  </div>
+  <Navigation client:load />
+</header>
+
+<style>
+  .nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+</style>

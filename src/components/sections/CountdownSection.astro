@@ -1,0 +1,15 @@
+---
+import Countdown from "../svelte/Countdown.svelte";
+import Leaf from "../svelte/Leaf.svelte";
+---
+
+<div class="relative flex flex-col w-full justify-center items-center px-4">
+  <div
+    class="absolute -top-40 sm:-left-14 sm:-top-40 z-0 w-full flex justify-center items-center overflow-hidden"
+  >
+    <Leaf client:only />
+  </div>
+  <div class="relative -top-10 md:-top-20 z-10 w-full max-w-[1040px]">
+    <Countdown client:only />
+  </div>
+</div>

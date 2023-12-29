@@ -1,0 +1,65 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<div class="preloading w-screen h-screen absolute top-0 z-50 overflow-hidden">
+  <div class="screen-1 bg-[#F4D9E0] w-screen h-screen absolute top-100"></div>
+  <div class="screen-2 bg-[#FFEECA] w-screen h-screen absolute top-100"></div>
+  <div class="screen-3 bg-[#FADBD9] w-screen h-screen absolute top-100"></div>
+  <div class="screen-4 bg-[#FFBBB7] w-screen h-screen absolute top-100"></div>
+  <div class="screen-5 content bg-[#FFFFF3] w-screen h-screen absolute top-100">
+    <Logo big />
+
+    <div class="overflow-hidden">
+      <h2 class="text-reveal text-6xl font-arizonia will-change-transform">
+        Nos casamos
+      </h2>
+    </div>
+  </div>
+</div>
+<script>
+  import { tl } from "../utils/animations";
+  window.scrollTo({ top: 0 });
+  const mainContainer = document.querySelector(".main-container");
+  const htmlContainer = document.querySelector("html");
+  htmlContainer?.classList.add("is-loading");
+  mainContainer?.classList.add("is-loading");
+  tl.from(".text-reveal", {
+    opacity: 0,
+    duration: 2,
+    yPercent: 100,
+    ease: "power4",
+    stagger: 0.1,
+  })
+    .to(".screen-5", {
+      duration: 1,
+      yPercent: 100,
+      ease: "power2.in",
+    })
+    .to(".screen-4", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.20")
+    .to(".screen-3", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.25")
+    .to(".screen-2", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.30")
+    .to(".screen-1", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.35")
+    .to(".preloading", {
+      display: "none",
+      onComplete: () => {
+        mainContainer?.classList.remove("is-loading");
+        htmlContainer?.classList.remove("is-loading");
+      },
+    });
+</script>
+<style>
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .text-reveal {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  }
+</style>

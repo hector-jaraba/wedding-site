@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/img/hero.png";
+import heroImage2 from "../assets/img/hero.jpg";
+---
+
+<div
+  class="relative w-screen h-screen flex justify-center items-center overflow-hidden"
+>
+  <Image
+    src={heroImage}
+    quality="max"
+    alt="los novios"
+    class="absolute object-cover flex-shrink-0 min-w-full min-h-full"
+  />
+  <div class="absolute font-arizonia text-yellow-100 text-center mt-48">
+    <h1 class="title text-5xl md:text-8xl m-0">Cathlene & Héctor</h1>
+    <h2 class="title text-4xl md:text-6xl mt-4">5 de Julio de 2024</h2>
+  </div>
+</div>
+
+<script>
+  import { tl } from "../utils/animations";
+
+  tl.fromTo(
+    ".title",
+    { opacity: 0, yPercent: -100 },
+    { opacity: 1, yPercent: 0, duration: 1 },
+  );
+</script>
+
+<style>
+  .title {
+    opacity: 0;
+  }
+</style>

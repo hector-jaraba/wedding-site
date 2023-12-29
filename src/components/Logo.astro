@@ -1,0 +1,16 @@
+---
+interface Props {
+  big?: boolean;
+}
+const { big } = Astro.props;
+---
+
+<figure
+  class:list={[{ "text-6xl": big, "text-3xl": !big }]}
+  class="inline-block font-arizonia"
+>
+  <a href="#">
+    C<span class="text-yellow-300">&</span>H
+  </a>
+</figure>
+<style></style>
