@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import FlowerSVG from "../../assets/svg/flower.svg?raw";
+import JardinImage from "../../assets/img/jardin-1.png";
+---
+
+<div class="place-section relative flex items-center flex-col mt-52 mb-72">
+  <div>
+    <h2 class="text-4xl">El sitio</h2>
+  </div>
+  <div class="relative content-wrapper flex items-center flex-col">
+    <div>
+      <Fragment set:html={FlowerSVG} />
+    </div>
+
+    <div
+      class="text-pretty absolute h-full flex flex-col-reverse sm:flex-row items-center justify-center w-full"
+    >
+      <div
+        class="content-box bg-pink-100 top-0 px-10 py-20 sm:p-20 w-full sm:w-3/4 md:w-2/4 relative sm:-left-20 md:-left-40 md:top-16"
+      >
+        <h3 class="text-lg font-medium tracking-widest">Jardin Llebeig</h3>
+        <p class="mb-4 tracking-wider">Salones Can Cela</p>
+        <p class="tracking-wider">Calle Marenys 1A</p>
+        <p class="tracking-wider">46410 Sueca, Valencia</p>
+      </div>
+      <figure
+        class="place-img relative -bottom-14 sm:absolute sm:ml-72 md:ml-96 sm:bottom-auto"
+      >
+        <Image src={JardinImage} alt="jardines LLebeig" />
+      </figure>
+    </div>
+  </div>
+</div>
+<script>
+  import { gsap } from "../../utils/animations";
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".place-img",
+      start: "top bottom",
+      end: "top center",
+      scrub: true,
+    },
+  });
+  tl.from(
+    ".place-img",
+    {
+      top: 400,
+      opacity: 0,
+      duration: 1,
+    },
+    0,
+  );
+
+  tl.from(
+    ".content-box",
+    {
+      left: -400,
+      opacity: 0,
+      duration: 1,
+    },
+    0,
+  );
+</script>

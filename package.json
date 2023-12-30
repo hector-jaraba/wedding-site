@@ -15,6 +15,7 @@
     "@astrojs/tailwind": "^5.0.4",
     "@fontsource-variable/lora": "^5.0.9",
     "@fontsource/arizonia": "^5.0.18",
+    "@studio-freight/lenis": "^1.0.33",
     "astro": "^4.0.7",
     "gsap": "^3.12.4",
     "svelte": "^4.2.8",

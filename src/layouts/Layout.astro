@@ -23,6 +23,17 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+<script>
+  import Lenis from "@studio-freight/lenis";
+  const lenis = new Lenis();
+
+  function raf(time: string) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+</script>
 <style is:global>
   :root {
     --accent: 136, 58, 234;

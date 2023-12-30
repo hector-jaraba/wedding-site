@@ -97,10 +97,9 @@ import Logo from "../Logo.astro";
     );
 
     tl.to(
-      ".menu-toggle-btn > span",
+      ["#menu-toggle-btn"],
       {
         duration: 0.2,
-        color: "#333",
       },
       "-=0.1",
     );
@@ -168,6 +167,7 @@ import Logo from "../Logo.astro";
   }
 
   #menu-toggle-btn {
+    --background-nav-btn: white;
     margin-top: 5px;
     display: flex;
     justify-content: center;
