@@ -1,26 +1,334 @@
 ---
-import Navigation from "../svelte/Navigation.svelte";
+import { Image } from "astro:assets";
+import RosesImage from "../../assets/img/roses.png";
 import Logo from "../Logo.astro";
 ---
 
-<header class="nav-container">
-  <div>
-    <Logo />
+<header class="flex justify-center">
+  <div class="navbar text-white content-wrapper">
+    <div class="site-logo">
+      <Logo />
+    </div>
+    <div class="menu-toggle">
+      <div id="menu-toggle-btn">
+        <span></span>
+      </div>
+    </div>
   </div>
-  <Navigation client:load />
+  <div id="nav-container" class="bg-white">
+    <div class="nav">
+      <div class="col flex relative">
+        <div class="nav-logo hidden sm:block sm:w-48 md:w-96 h-full top-0">
+          <Image src={RosesImage} alt="roses" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="nav-link">
+          <a href="#">Inicio</a>
+          <div class="nav-item-wrapper"></div>
+        </div>
+        <div class="nav-link">
+          <a href="#">El sitio</a>
+          <div class="nav-item-wrapper"></div>
+        </div>
+        <div class="nav-link">
+          <a href="#">El plan</a>
+          <div class="nav-item-wrapper"></div>
+        </div>
+        <div class="nav-link">
+          <a href="#">Regalos</a>
+          <div class="nav-item-wrapper"></div>
+        </div>
+        <div class="nav-link">
+          <a href="#">Nuestra historia</a>
+          <div class="nav-item-wrapper"></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer flex justify-between">
+      <div class="links content-wrapper">
+        <a href="#">ES</a>
+        <a href="#">NL</a>
+        <a href="#">EN</a>
+      </div>
+    </div>
+  </div>
 </header>
 
+<script>
+  import { gsap } from "gsap";
+  const tl = gsap.timeline({ paused: true });
+
+  function openNav() {
+    animateOpenNav();
+    const navBtn = document.getElementById("menu-toggle-btn");
+    const linksArray = document.querySelectorAll("#nav-container a");
+    if (!navBtn) return;
+    const handleClick = () => {
+      navBtn.classList.toggle("active");
+      tl.reversed(!tl.reversed());
+    };
+
+    navBtn.onclick = function (e) {
+      handleClick();
+    };
+
+    linksArray.forEach(function (elem) {
+      elem.addEventListener("click", handleClick);
+    });
+  }
+
+  openNav();
+
+  function animateOpenNav() {
+    tl.to("#nav-container", {
+      duration: 0.2,
+      autoAlpha: 1,
+      delay: 0.1,
+    });
+
+    tl.to(
+      ".site-logo",
+      {
+        duration: 0.2,
+        color: "#333",
+      },
+      "-=0.1",
+    );
+
+    tl.to(
+      ".menu-toggle-btn > span",
+      {
+        duration: 0.2,
+        color: "#333",
+      },
+      "-=0.1",
+    );
+
+    tl.from("header .flex > div", {
+      duration: 0.4,
+      opacity: 0,
+      y: 10,
+      stagger: {
+        amount: 0.04,
+      },
+    });
+
+    tl.to(
+      ".nav-link > a",
+      {
+        duration: 0.8,
+        top: 0,
+        ease: "power2.inOut",
+        stagger: {
+          amount: 0.1,
+        },
+      },
+      "-=0.4",
+    );
+
+    tl.from(
+      ".nav-footer",
+      {
+        duration: 0.3,
+        opacity: 0,
+      },
+      "-=0.5",
+    ).reverse();
+  }
+</script>
+
 <style>
-  .nav-container {
+  header {
+    position: fixed;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .navbar {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  #menu-toggle-btn {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10000;
+  }
+
+  span {
+    height: 2px;
+    background: white;
+    width: 24px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transition: all 0.3s;
+  }
+
+  span::before {
+    content: " ";
+    position: absolute;
+    display: inline-block;
+    height: 2px;
+    background: white;
+    transform: translateY(-4px);
+    width: 24px;
+    transition: all 0.3s;
+  }
+
+  span::before {
+    top: -2px;
+  }
+
+  .active span {
+    transform: rotate(45deg);
+    background: #333;
+  }
+
+  .active span::before {
+    top: unset;
+    transform: rotate(-90deg);
+    background: #333;
+  }
+
+  .active:hover span::before {
+    top: unset;
+  }
+
+  #nav-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    color: white;
-    padding: 1rem;
+    height: 100vh;
+    color: #333;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+  }
+
+  .nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+  }
+
+  .nav-logo {
+    font-weight: 300;
+    margin-top: -0.2em;
+    text-transform: uppercase;
+    font-size: 120px;
+  }
+
+  .nav-socials {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-socials a {
+    font-weight: 400;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link a {
+    position: relative;
+    top: 60px;
+    text-decoration: none;
+    color: #333;
+    font-size: 60px;
+    font-weight: lighter;
+  }
+
+  .nav-item-wrapper:after {
+    content: "";
+    position: absolute;
+    top: 77px;
+    left: 0;
+    width: 500px;
+    height: 77px;
+    background: white;
+    margin: 0 auto;
+    transition: 1s;
+  }
+
+  .nav-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 2em 1em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-footer a {
+    text-decoration: none;
+    color: #333;
+    padding: 0 1em;
+  }
+
+  @media (max-width: 900px) {
+    .nav {
+      flex-direction: column-reverse;
+    }
+
+    .nav-logo {
+      display: none;
+    }
+
+    .nav-socials {
+      flex-direction: row;
+      margin-top: 4em;
+    }
+
+    .nav-socials a {
+      padding: 0 0.4em;
+    }
+
+    .nav-footer {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nav-link a {
+      top: 38px;
+      font-size: 38px;
+    }
+
+    .nav-item-wrapper:after {
+      height: 48.5px;
+      top: 48.5px;
+    }
   }
 </style>

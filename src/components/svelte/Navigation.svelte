@@ -1,80 +1,110 @@
 <script>
   import { onMount } from "svelte";
+  import { gsap, Power2 } from "gsap";
 
-  let isOpen = false;
-
-  onMount(() => {
-    // Close the menu when the component is mounted
-    closeMenu();
-  });
+  let isMenuOpen = false;
 
   function toggleMenu() {
-    isOpen = !isOpen;
+    console.log("click");
+    isMenuOpen = !isMenuOpen;
+
+    const menuOverlay = document.querySelector(".menu-overlay");
+
+    if (isMenuOpen) {
+      gsap.to(menuOverlay, {
+        duration: 0.5,
+        opacity: 1,
+        display: "block",
+        ease: Power2.easeOut,
+      });
+      animateMenuItems(".menu-item", 0.5);
+    } else {
+      gsap.to(menuOverlay, {
+        duration: 0.5,
+        opacity: 0,
+        display: "none",
+        ease: Power2.easeOut,
+      });
+      animateMenuItems(".menu-item", 0);
+    }
   }
 
   function closeMenu() {
-    isOpen = false;
+    const menuOverlay = document.querySelector(".menu-overlay");
+    animateMenuItems(".menu-item", 0);
+    gsap.to(menuOverlay, {
+      duration: 0.5,
+      opacity: 0,
+      ease: Power2.easeOut,
+    });
+  }
+
+  function animateMenuItems(selector, delay) {
+    const menuItems = document.querySelectorAll(selector);
+
+    menuItems.forEach((item, index) => {
+      console.log("asd", isMenuOpen);
+      gsap.to(item, {
+        duration: 0.5,
+        opacity: isMenuOpen ? 1 : 0,
+        y: isMenuOpen ? 0 : -20,
+        delay: index * 0.1 + delay,
+      });
+    });
   }
 </script>
 
-<nav>
-  <ul class="nav-list {isOpen ? 'active' : ''}">
-    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-  </ul>
+<nav class="flex items-center justify-between p-4 bg-gray-200 text-gray-700">
+  <button class="text-2xl" on:click={toggleMenu}>&#9776;</button>
 </nav>
-<button class="toggle-btn" on:click={toggleMenu}>Toggle Menu</button>
+
+<div class="menu-overlay" style={{ display: isMenuOpen ? "block" : "none" }}>
+  <div class="menu">
+    <span class="close-button" on:click={closeMenu}>&times;</span>
+    <div class="menu-item text-4xl">Home</div>
+    <div class="menu-item text-4xl">About</div>
+    <div class="menu-item text-4xl">Gallery</div>
+    <div class="menu-item text-4xl">RSVP</div>
+    <div class="menu-item text-4xl">Contact</div>
+  </div>
+</div>
 
 <style>
-  .nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
+  @import "tailwindcss/base.css";
+  @import "tailwindcss/components.css";
+  @import "tailwindcss/utilities.css";
 
-  .nav-item {
-    margin-right: 1rem;
-  }
-
-  .toggle-btn {
+  /* Custom Tailwind styles */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 182, 193, 0.8); /* Soft pink background color */
+    z-index: 50;
+    opacity: 0;
     display: none;
   }
 
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  .menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 51;
   }
 
-  /* Mobile Menu Styles */
-  @media (max-width: 768px) {
-    .nav-list {
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background-color: #333;
-      display: none;
-      flex-direction: column;
-      padding: 1rem;
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    }
+  .menu-item {
+    margin: 10px 0;
+    opacity: 0;
+    color: #333; /* Dark text color */
+  }
 
-    .nav-list.active {
-      display: flex;
-    }
-
-    .nav-item {
-      margin-bottom: 1rem;
-      margin-right: 0;
-    }
-
-    .toggle-btn {
-      display: block;
-    }
+  .close-button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333; /* Dark text color */
   }
 </style>

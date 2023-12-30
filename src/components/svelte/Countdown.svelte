@@ -57,7 +57,7 @@
       <span class="text-2xl md:text-6xl">{minutes}</span>
       <span class="text-lg md:text-xl sm:mt-4">minutes</span>
     </div>
-    <div class="hidden sm:inline-flex flex-initial flex-col items-center w-24">
+    <div class="inline-flex flex-initial flex-col items-center w-24">
       <span class="text-2xl md:text-6xl">{seconds}</span>
       <span class="text-lg md:text-xl sm:mt-4">seconds</span>
     </div>
