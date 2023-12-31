@@ -5,28 +5,15 @@ import Hero from "../components/Hero.astro";
 import CountdownSection from "../components/sections/CountdownSection.astro";
 import HeaderSection from "../components/sections/HeaderSection.astro";
 import PlaceSection from "../components/sections/PlaceSection.astro";
+import LinkButton from "../components/LinkButton.astro";
 ---
 
 <Layout title="Cathlene & Héctor">
-  <Preloading />
+  {import.meta.env.PROD && <Preloading />}
   <HeaderSection />
   <Hero />
   <CountdownSection />
   <PlaceSection />
-
-  <!-- <main>
-    <Logo />
-
-    <h1>nos casamos</h1>
-    <p class="font-lora">hello</p>
-    <a
-      class="btn"
-      href="https://www.google.es/maps/place/Espacios,+Eventos+%26+Catering+CanCela/@39.2080396,-0.3116693,17z/data=!3m1!4b1!4m6!3m5!1s0xd61b6225dd21de3:0x7f8be76d22dad360!8m2!3d39.2080396!4d-0.3090944!16s%2Fg%2F1wj_7c71?entry=ttu"
-      >navigate place</a
-    >
-    <a href="https://maps.app.goo.gl/xabmWaJHfepCVSLb9">Navigate parking</a>
-    <p>hello</p>
-  </main> -->
 </Layout>
 
 <style>

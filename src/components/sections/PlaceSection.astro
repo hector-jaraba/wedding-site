@@ -2,13 +2,14 @@
 import { Image } from "astro:assets";
 import FlowerSVG from "../../assets/svg/flower.svg?raw";
 import JardinImage from "../../assets/img/jardin-1.png";
+import LinkButton from "../LinkButton.astro";
 ---
 
 <div
-  class="place-section relative flex items-center flex-col mt-52 mb-72 overflow-hidden"
+  class="place-section relative flex items-center flex-col mt-52 mb-40 pb-32 overflow-hidden"
 >
   <div>
-    <h2 class="text-4xl">El sitio</h2>
+    <h2 class="text-4xl uppercase">El sitio</h2>
   </div>
   <div class="relative content-wrapper flex items-center flex-col">
     <div>
@@ -19,15 +20,33 @@ import JardinImage from "../../assets/img/jardin-1.png";
       class="text-pretty absolute h-full flex flex-col-reverse sm:flex-row items-center justify-center w-full"
     >
       <div
-        class="content-box bg-pink-100 top-0 px-10 py-20 sm:p-20 w-full sm:w-3/4 md:w-2/4 relative sm:-left-20 md:-left-40 md:top-16"
+        class="content-box bg-pink-light top-0 px-10 py-20 sm:p-20 w-full sm:w-3/4 md:w-2/3 relative sm:-left-20 md:-left-40 md:top-16"
       >
         <h3 class="text-lg font-medium tracking-widest">Jardin Llebeig</h3>
         <p class="mb-4 tracking-wider">Salones Can Cela</p>
         <p class="tracking-wider">Calle Marenys 1A</p>
         <p class="tracking-wider">46410 Sueca, Valencia</p>
+        <div
+          class="flex absolute -bottom-6 sm:left-4 w-full sm:w-auto justify-center left-0"
+        >
+          <LinkButton
+            className="mr-4 w-40 xl:w-52"
+            href="https://maps.app.goo.gl/E9di3PUXurc2VW4g6"
+            target="_blank"
+          >
+            ir al sitio
+          </LinkButton>
+          <LinkButton
+            className="w-40 xl:w-52"
+            target="_blank"
+            href="https://maps.app.goo.gl/xabmWaJHfepCVSLb9"
+          >
+            ir al parking
+          </LinkButton>
+        </div>
       </div>
       <figure
-        class="place-img relative -bottom-14 sm:absolute sm:ml-72 md:ml-96 sm:bottom-auto"
+        class="place-img relative -bottom-14 sm:absolute sm:ml-72 md:ml-96 sm:top-20 md:bottom-auto"
       >
         <Image src={JardinImage} alt="jardines LLebeig" />
       </figure>

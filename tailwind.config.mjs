@@ -12,9 +12,11 @@ export default {
       colors: {
         pink: {
           custom: "#d5a6bd",
+          light: "#FFEBEE",
         },
         gold: {
           100: "#ffedca",
+          500: "#D2A55D",
         },
       },
     },
