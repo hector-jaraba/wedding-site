@@ -57,6 +57,17 @@ import Logo from "../Logo.astro";
 
 <script>
   import { gsap } from "gsap";
+  import { tl as mainTl } from "../../utils/animations";
+
+  mainTl.from(
+    "header",
+    {
+      opacity: 0,
+      y: -100,
+    },
+    "header",
+  );
+
   const tl = gsap.timeline({ paused: true });
 
   function openNav() {

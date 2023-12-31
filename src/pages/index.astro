@@ -5,11 +5,11 @@ import Hero from "../components/Hero.astro";
 import CountdownSection from "../components/sections/CountdownSection.astro";
 import HeaderSection from "../components/sections/HeaderSection.astro";
 import PlaceSection from "../components/sections/PlaceSection.astro";
-import LinkButton from "../components/LinkButton.astro";
+import { isProd } from "../utils/globals";
 ---
 
 <Layout title="Cathlene & Héctor">
-  {import.meta.env.PROD && <Preloading />}
+  {isProd && <Preloading />}
   <HeaderSection />
   <Hero />
   <CountdownSection />

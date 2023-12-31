@@ -19,34 +19,58 @@ import Logo from "./Logo.astro";
 </div>
 <script>
   import { tl } from "../utils/animations";
-  window.scrollTo({ top: 0 });
-  const mainContainer = document.querySelector(".main-container");
-  const htmlContainer = document.querySelector("html");
-  htmlContainer?.classList.add("is-loading");
-  mainContainer?.classList.add("is-loading");
-  tl.from(".text-reveal", {
-    opacity: 0,
-    duration: 2,
-    yPercent: 100,
-    ease: "power4",
-    stagger: 0.1,
-  })
-    .to(".screen-5", {
-      duration: 1,
+  import { isProd } from "../utils/globals";
+
+  const startAnimation = () => {
+    window.scrollTo({ top: 0 });
+    const mainContainer = document.querySelector(".main-container");
+    const htmlContainer = document.querySelector("html");
+    htmlContainer?.classList.add("is-loading");
+    mainContainer?.classList.add("is-loading");
+    tl.from(".text-reveal", {
+      opacity: 0,
+      duration: 2,
       yPercent: 100,
-      ease: "power2.in",
+      ease: "power4",
+      stagger: 0.1,
     })
-    .to(".screen-4", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.20")
-    .to(".screen-3", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.25")
-    .to(".screen-2", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.30")
-    .to(".screen-1", { duration: 0.5, yPercent: -100, opacity: 0.5 }, "-=0.35")
-    .to(".preloading", {
-      display: "none",
-      onComplete: () => {
-        mainContainer?.classList.remove("is-loading");
-        htmlContainer?.classList.remove("is-loading");
-      },
-    });
+      .to(".screen-5", {
+        duration: 1,
+        yPercent: 100,
+        ease: "power2.in",
+      })
+      .to(
+        ".screen-4",
+        { duration: 0.5, yPercent: -100, opacity: 0.5 },
+        "-=0.20",
+      )
+      .to(
+        ".screen-3",
+        { duration: 0.5, yPercent: -100, opacity: 0.5 },
+        "-=0.25",
+      )
+      .to(
+        ".screen-2",
+        { duration: 0.5, yPercent: -100, opacity: 0.5 },
+        "-=0.30",
+      )
+      .to(
+        ".screen-1",
+        { duration: 0.5, yPercent: -100, opacity: 0.5 },
+        "-=0.35",
+      )
+      .to(".preloading", {
+        display: "none",
+        onComplete: () => {
+          mainContainer?.classList.remove("is-loading");
+          htmlContainer?.classList.remove("is-loading");
+        },
+      });
+  };
+
+  if (isProd) {
+    startAnimation();
+  }
 </script>
 <style>
   .content {
