@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import startHourSVG from "../../assets/svg/startHour.svg?raw";
+import partyIconSVG from "../../assets/svg/partyIcon.svg?raw";
+import ringsIconSVG from "../../assets/svg/ringsIcon.svg?raw";
+import toastIconSVG from "../../assets/svg/toastIcon.svg?raw";
+import dinnerIconSVG from "../../assets/svg/dinnerIcon.svg?raw";
+import hijaSVG from "../../assets/svg/hoja.svg?raw";
+---
+
+<div
+  class="place-section relative flex items-center flex-col mt-52 mb-40 pb-32 overflow-hidden"
+>
+  <div>
+    <h2 class="text-4xl uppercase">El plan</h2>
+  </div>
+  <div class="relative content-wrapper flex items-center flex-col">
+    <div>
+      <Fragment set:html={startHourSVG} />
+      <div>
+        <div>
+          <Fragment set:html={toastIconSVG} />
+        </div>
+        <div>
+          <Fragment set:html={ringsIconSVG} />
+        </div>
+        <div>
+          <Fragment set:html={dinnerIconSVG} />
+        </div>
+        <div>
+          <Fragment set:html={partyIconSVG} />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script></script>

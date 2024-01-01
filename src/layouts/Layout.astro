@@ -24,6 +24,7 @@ const { title } = Astro.props;
   </body>
 </html>
 <script>
+  import { gsap } from "../utils/animations";
   import Lenis from "@studio-freight/lenis";
   const lenis = new Lenis();
 
@@ -33,6 +34,26 @@ const { title } = Astro.props;
   };
 
   requestAnimationFrame(raf);
+
+  gsap.to(".site-logo .negative-logo", {
+    duration: 2,
+    height: "100%",
+    scrollTrigger: {
+      trigger: ".countdown-section",
+      scrub: true,
+      start: "-=300",
+    },
+  });
+
+  gsap.to("#menu-toggle-btn", {
+    duration: 2,
+    "--background-nav-btn": "black",
+    scrollTrigger: {
+      trigger: ".countdown-section",
+      scrub: true,
+      start: "-=300",
+    },
+  });
 </script>
 <style is:global>
   :root {

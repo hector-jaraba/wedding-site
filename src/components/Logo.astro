@@ -1,15 +1,25 @@
 ---
 interface Props {
   big?: boolean;
+  black?: boolean;
+  className?: string;
 }
-const { big } = Astro.props;
+const { big, black, className } = Astro.props;
 ---
 
 <figure
-  class:list={[{ "text-6xl": big, "text-3xl": !big }]}
-  class="inline-block font-arizonia"
+  class:list={[
+    {
+      "text-6xl": big,
+      "text-3xl": !big,
+      "text-black": black,
+      "text-white": !black,
+    },
+    className,
+  ]}
+  class="inline-block font-arizonia pr-4"
 >
-  <a href="#">
+  <a class="block w-[113%]" href="#">
     C<span class="text-gold-500">&</span>H
   </a>
 </figure>

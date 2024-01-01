@@ -6,8 +6,11 @@ import Logo from "../Logo.astro";
 
 <header class="flex justify-center">
   <div class="navbar text-white content-wrapper">
-    <div class="site-logo">
+    <div class="site-logo relative w-20">
       <Logo />
+      <div class="negative-logo absolute bottom-0 overflow-hidden w-full h-0">
+        <Logo className="absolute bottom-0 overflow-hidden" black />
+      </div>
     </div>
     <div class="menu-toggle">
       <div id="menu-toggle-btn">
@@ -99,7 +102,7 @@ import Logo from "../Logo.astro";
     });
 
     tl.to(
-      ".site-logo",
+      ".site-logo > figure",
       {
         duration: 0.2,
         color: "#333",
@@ -193,7 +196,7 @@ import Logo from "../Logo.astro";
 
   span {
     height: 2px;
-    background: white;
+    background: var(--background-nav-btn);
     width: 24px;
     display: inline-block;
     position: absolute;
@@ -206,7 +209,7 @@ import Logo from "../Logo.astro";
     position: absolute;
     display: inline-block;
     height: 2px;
-    background: white;
+    background: var(--background-nav-btn);
     transform: translateY(-4px);
     width: 24px;
     transition: all 0.3s;
