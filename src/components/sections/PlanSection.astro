@@ -1,26 +1,30 @@
 ---
-import { Image } from "astro:assets";
+import leafTitleSVG from "../../assets/svg/leafTitle.svg?raw";
 import startHourSVG from "../../assets/svg/startHour.svg?raw";
 import partyIconSVG from "../../assets/svg/partyIcon.svg?raw";
 import ringsIconSVG from "../../assets/svg/ringsIcon.svg?raw";
 import toastIconSVG from "../../assets/svg/toastIcon.svg?raw";
 import dinnerIconSVG from "../../assets/svg/dinnerIcon.svg?raw";
 import hojaSVG from "../../assets/svg/hoja.svg?raw";
+import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
 ---
 
 <div
-  class="plan-section relative flex items-center flex-col mb-40 pb-32 overflow-hidden"
+  class="plan-section relative flex items-center flex-col md:mb-40 md:pb-32 overflow-hidden"
 >
-  <div class="mb-20">
+  <div class="mb-20 flex flex-col justify-center items-center">
     <h2 class="text-4xl uppercase">El plan</h2>
+    <Fragment set:html={leafTitleSVG} />
   </div>
 
-  <div class="leaf-top absolute self-end -right-96 sm:-right-80 mt-36">
+  <div
+    class="leaf-top absolute self-end -right-96 sm:-right-80 top-40 mt-80 z-20"
+  >
     <Fragment set:html={hojaSVG} />
   </div>
 
   <div
-    class="leaf-bottom absolute rotate-180 -left-96 sm:-left-80 mt-36 bottom-28"
+    class="leaf-bottom absolute rotate-180 -left-96 sm:-left-80 mt-36 bottom-64 z-20"
   >
     <Fragment set:html={hojaSVG} />
   </div>
@@ -30,34 +34,43 @@ import hojaSVG from "../../assets/svg/hoja.svg?raw";
 
     <div class="plan-items relative mt-28 w-full flex flex-col">
       <div
-        class="line-separator hidden sm:block absolute self-center bg-[#333] w-[1px] h-2 opacity-10"
+        class="line-separator block absolute self-center bg-[#333] w-[1px] h-2 opacity-10"
       >
       </div>
       <div class="flex w-full sm:w-1/2 my-8 justify-center">
-        <div class="toast-item text-center font-arizonia text-gold-500">
+        <div
+          class="toast-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
+        >
           <Fragment set:html={toastIconSVG} />
           <h4 class="text-3xl mt-4">Brindis</h4>
         </div>
       </div>
       <div class="flex justify-center w-full sm:w-1/2 self-end my-8">
-        <div class="rings-item text-center font-arizonia text-gold-500">
+        <div
+          class="rings-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
+        >
           <Fragment set:html={ringsIconSVG} />
           <h4 class="text-3xl mt-4">Ceremonia</h4>
         </div>
       </div>
       <div class="flex w-full sm:w-1/2 justify-center my-8">
-        <div class="dinner-item text-center font-arizonia text-gold-500">
+        <div
+          class="dinner-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
+        >
           <Fragment set:html={dinnerIconSVG} />
           <h4 class="text-3xl mt-4">Cena</h4>
         </div>
       </div>
       <div class="flex justify-center w-full sm:w-1/2 self-end my-8">
-        <div class="party-item text-center font-arizonia text-gold-500">
+        <div
+          class="party-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
+        >
           <Fragment set:html={partyIconSVG} />
           <h4 class="text-3xl mt-4">Fiesta</h4>
         </div>
       </div>
     </div>
+    <Fragment set:html={inifiniteSVG} />
   </div>
 </div>
 <script>
@@ -78,59 +91,50 @@ import hojaSVG from "../../assets/svg/hoja.svg?raw";
     ".line-separator",
     {
       ease: "none",
-      duration: 1.2,
+      duration: 1,
       height: "100%",
       opacity: 1,
+      scrollTrigger: {
+        trigger: ".plan-items",
+        start: "top center",
+        // end: "+=1200",
+        end: "bottom center",
+        scrub: true,
+      },
     },
     0,
   );
 
-  tl.from(
-    ".toast-item",
-    {
-      // x: 200,
-      opacity: 0.2,
-      duration: 0.75,
-      color: "#333",
-    },
-    0,
-  );
+  tl.from(".toast-item", {
+    // x: 200,
+    opacity: 0.2,
+    duration: 0.75,
+    color: "#333",
+  });
 
-  tl.from(
-    ".rings-item",
-    {
-      // x: -200,
-      opacity: 0.2,
-      duration: 0.75,
-      delay: 0.2,
-      color: "#333",
-    },
-    0,
-  );
+  tl.from(".rings-item", {
+    // x: -200,
+    opacity: 0.2,
+    duration: 0.75,
+    delay: 0.35,
+    color: "#333",
+  });
 
-  tl.from(
-    ".dinner-item",
-    {
-      // x: 200,
-      opacity: 0.2,
-      duration: 0.75,
-      delay: 0.45,
-      color: "#333",
-    },
-    0,
-  );
+  tl.from(".dinner-item", {
+    // x: 200,
+    opacity: 0.2,
+    duration: 0.75,
+    delay: 0.7,
+    color: "#333",
+  });
 
-  tl.from(
-    ".party-item",
-    {
-      // x: -200,
-      opacity: 0.2,
-      duration: 0.75,
-      delay: 0.75,
-      color: "#333",
-    },
-    0,
-  );
+  tl.from(".party-item", {
+    // x: -200,
+    opacity: 0.2,
+    duration: 0.75,
+    delay: 1,
+    color: "#333",
+  });
 
   tl.from(
     ".leaf-top",
@@ -141,13 +145,15 @@ import hojaSVG from "../../assets/svg/hoja.svg?raw";
     0,
   );
 
-  tl.from(
-    ".leaf-bottom",
-    {
-      left: -400,
-      duration: 1,
-      delay: 0.7,
-    },
-    0,
-  );
+  tl.from(".leaf-bottom", {
+    left: -400,
+    duration: 1,
+    delay: 0.7,
+  });
+
+  tl.to(".infinite-svg .infinite-fill", {
+    fillOpacity: 1,
+    duration: 1,
+    delay: 1,
+  });
 </script>

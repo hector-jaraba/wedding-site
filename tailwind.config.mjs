@@ -18,6 +18,9 @@ export default {
           100: "#ffedca",
           500: "#D2A55D",
         },
+        slate: {
+          200: "#fdfdfd",
+        },
       },
     },
   },

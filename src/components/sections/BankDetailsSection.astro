@@ -1,0 +1,45 @@
+---
+import WhiteRoseSVG from "../../assets/svg/whiteRose.svg?raw";
+---
+
+<section
+  class="bank-details-section relative flex items-center flex-col mb-40 py-32 overflow-hidden"
+>
+  <div
+    class="mb-40 text-2xl content-wrapper text-gold-500 sm:px-32 text-pretty tracking-wider"
+  >
+    <p>
+      Vuestra presencia será nuestro mejor regalo, aun asi si quereis contribuir
+      a nuestra luna de miel os facilitamos nuestro numero de cuenta
+    </p>
+  </div>
+  <div class="relative content-wrapper flex items-center flex-col my-20 p-0">
+    <div
+      class="relative w-full px-0 sm:px-0 md:px-10 lg:px-40 flex flex-col items-center"
+    >
+      <div
+        class="absolute z-0 sm:z-10 rotate-180 -top-20 -right-20 sm:rotate-0 sm:-top-8 sm:-left-16 md:-top-9 md:-left-10 lg:left-20 xl:-top-32 xl:left-10 w-[280px] md:w-[340px] xl:w-[500px]"
+      >
+        <Fragment set:html={WhiteRoseSVG} />
+      </div>
+      <div
+        class="relative sm:h-auto bg-slate-200 flex w-full p-6 md:p-10 border-solid border-4 border-gold-500 text-gold-500 sm:justify-end"
+      >
+        <div class="lg:w-3/5 xl:w-3/5 text-nowrap">
+          <h4 class="font-arizonia text-3xl">Numero de cuenta</h4>
+          <p class="text-xl xl:text-3xl sm:tracking-widest mt-8">
+            ES70 0182 0578 4602 0158 8477
+          </p>
+        </div>
+      </div>
+      <div
+        class="relative sm:left-10 sm:-top-4 lg:left-10 lg:-top-4 xl:left-32 xl:-top-10 z-20 font-arizonia text-6xl sm:text-9xl xl:text-[12rem] tracking-widest text-gold-500"
+      >
+        Gracias!
+      </div>
+    </div>
+  </div>
+  <script>
+    import { gsap } from "../../utils/animations";
+  </script>
+</section>

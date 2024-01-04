@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import heroImage from "../assets/img/hero.png";
+import heroImage from "../../assets/img/hero.png";
 ---
 
 <div
@@ -19,7 +19,7 @@ import heroImage from "../assets/img/hero.png";
 </div>
 
 <script>
-  import { tl } from "../utils/animations";
+  import { tl } from "../../utils/animations";
 
   tl.fromTo(
     ".title",

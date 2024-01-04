@@ -1,21 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Preloading from "../components/Preloading.astro";
-import Hero from "../components/Hero.astro";
+import { isProd } from "../utils/globals";
+import HeroSection from "../components/sections/HeroSection.astro";
 import CountdownSection from "../components/sections/CountdownSection.astro";
 import HeaderSection from "../components/sections/HeaderSection.astro";
 import PlaceSection from "../components/sections/PlaceSection.astro";
 import PlanSection from "../components/sections/PlanSection.astro";
-import { isProd } from "../utils/globals";
+import BankDetailsSection from "../components/sections/BankDetailsSection.astro";
 ---
 
 <Layout title="Cathlene & Héctor">
   {isProd && <Preloading />}
   <HeaderSection />
-  <Hero />
+  <HeroSection />
   <CountdownSection />
   <PlaceSection />
   <PlanSection />
+  <BankDetailsSection />
 </Layout>
 
 <style>
