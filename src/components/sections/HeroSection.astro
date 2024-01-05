@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import heroImage from "../../assets/img/hero.png";
+import { useI18n } from "../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <div
@@ -13,8 +15,8 @@ import heroImage from "../../assets/img/hero.png";
     class="absolute object-cover flex-shrink-0 min-w-full min-h-full"
   />
   <div class="absolute font-arizonia text-yellow-100 text-center mt-48">
-    <h1 class="title text-5xl md:text-8xl m-0">Cathlene & Héctor</h1>
-    <h2 class="title text-4xl md:text-6xl mt-4">5 de Julio de 2024</h2>
+    <h1 class="title text-5xl md:text-8xl m-0">{t("hero.names")}</h1>
+    <h2 class="title text-4xl md:text-6xl mt-4">{t("hero.date")}</h2>
   </div>
 </div>
 

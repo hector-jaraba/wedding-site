@@ -7,13 +7,16 @@ import toastIconSVG from "../../assets/svg/toastIcon.svg?raw";
 import dinnerIconSVG from "../../assets/svg/dinnerIcon.svg?raw";
 import hojaSVG from "../../assets/svg/hoja.svg?raw";
 import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
+import { useI18n } from "../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
-<div
-  class="plan-section relative flex items-center flex-col md:mb-40 md:pb-32 overflow-hidden"
+<section
+  id="plan"
+  class="plan-section relative flex items-center flex-col md:mb-40 md:py-32 overflow-hidden"
 >
   <div class="mb-20 flex flex-col justify-center items-center">
-    <h2 class="text-4xl uppercase">El plan</h2>
+    <h2 class="text-4xl uppercase">{t("plan.title")}</h2>
     <Fragment set:html={leafTitleSVG} />
   </div>
 
@@ -42,7 +45,7 @@ import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
           class="toast-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
           <Fragment set:html={toastIconSVG} />
-          <h4 class="text-3xl mt-4">Brindis</h4>
+          <h4 class="text-3xl mt-4">{t("plan.toast")}</h4>
         </div>
       </div>
       <div class="flex justify-center w-full sm:w-1/2 self-end my-8">
@@ -50,7 +53,7 @@ import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
           class="rings-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
           <Fragment set:html={ringsIconSVG} />
-          <h4 class="text-3xl mt-4">Ceremonia</h4>
+          <h4 class="text-3xl mt-4">{t("plan.ceremony")}</h4>
         </div>
       </div>
       <div class="flex w-full sm:w-1/2 justify-center my-8">
@@ -58,7 +61,7 @@ import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
           class="dinner-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
           <Fragment set:html={dinnerIconSVG} />
-          <h4 class="text-3xl mt-4">Cena</h4>
+          <h4 class="text-3xl mt-4">{t("plan.dinner")}</h4>
         </div>
       </div>
       <div class="flex justify-center w-full sm:w-1/2 self-end my-8">
@@ -66,13 +69,13 @@ import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
           class="party-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
           <Fragment set:html={partyIconSVG} />
-          <h4 class="text-3xl mt-4">Fiesta</h4>
+          <h4 class="text-3xl mt-4">{t("plan.party")}</h4>
         </div>
       </div>
     </div>
     <Fragment set:html={inifiniteSVG} />
   </div>
-</div>
+</section>
 <script>
   import { gsap } from "../../utils/animations";
   const tl = gsap.timeline({

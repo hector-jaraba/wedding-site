@@ -12,6 +12,6 @@ import Leaf from "../Leaf.astro";
     <Leaf />
   </div>
   <div class="relative -top-10 md:-top-20 z-10 w-full max-w-[1040px]">
-    <Countdown client:load />
+    <Countdown actualURL={Astro.url} client:load />
   </div>
 </div>

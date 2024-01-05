@@ -1,10 +1,16 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useI18n } from "../utils/i18n";
 interface Props {
   big?: boolean;
   black?: boolean;
   className?: string;
 }
 const { big, black, className } = Astro.props;
+
+const { lang } = useI18n(Astro.url);
+
+const homeURL = getRelativeLocaleUrl(lang, "");
 ---
 
 <figure
@@ -19,7 +25,7 @@ const { big, black, className } = Astro.props;
   ]}
   class="inline-block font-arizonia pr-4"
 >
-  <a class="block w-[113%]" href="#">
+  <a class="block w-[113%]" href={homeURL}>
     C<span class="text-gold-500">&</span>H
   </a>
 </figure>

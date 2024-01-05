@@ -1,5 +1,7 @@
 ---
 import WhiteRoseSVG from "../../assets/svg/whiteRose.svg?raw";
+import { useI18n } from "../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <section
@@ -9,8 +11,7 @@ import WhiteRoseSVG from "../../assets/svg/whiteRose.svg?raw";
     class="mb-40 text-2xl content-wrapper text-gold-500 sm:px-32 text-pretty tracking-wider"
   >
     <p>
-      Vuestra presencia será nuestro mejor regalo, aun asi si quereis contribuir
-      a nuestra luna de miel os facilitamos nuestro numero de cuenta
+      {t("bankAccount.text")}
     </p>
   </div>
   <div class="relative content-wrapper flex items-center flex-col my-20 p-0">
@@ -26,7 +27,7 @@ import WhiteRoseSVG from "../../assets/svg/whiteRose.svg?raw";
         class="relative sm:h-auto bg-slate-200 flex w-full p-6 md:p-10 border-solid border-4 border-gold-500 text-gold-500 sm:justify-end"
       >
         <div class="lg:w-3/5 xl:w-3/5 text-nowrap">
-          <h4 class="font-arizonia text-3xl">Numero de cuenta</h4>
+          <h4 class="font-arizonia text-3xl">{t("bankAccount.title")}</h4>
           <p class="text-xl xl:text-3xl sm:tracking-widest mt-8">
             ES70 0182 0578 4602 0158 8477
           </p>
@@ -35,7 +36,7 @@ import WhiteRoseSVG from "../../assets/svg/whiteRose.svg?raw";
       <div
         class="relative sm:left-10 sm:-top-4 lg:left-10 lg:-top-4 xl:left-32 xl:-top-10 z-20 font-arizonia text-6xl sm:text-9xl xl:text-[12rem] tracking-widest text-gold-500"
       >
-        Gracias!
+        {t("bankAccount.thanks")}
       </div>
     </div>
   </div>

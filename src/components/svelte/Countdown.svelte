@@ -1,5 +1,10 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
+  import { useI18n } from "../../utils/i18n.ts";
+
+  export let actualURL;
+
+  const { t } = useI18n(actualURL);
 
   let countdown: number;
   let days = 0;
@@ -47,19 +52,19 @@
   {:else}
     <div class="inline-flex flex-initial flex-col items-center w-24">
       <span class="text-2xl md:text-6xl">{days}</span>
-      <span class="text-lg md:text-xl sm:mt-4">days</span>
+      <span class="text-lg md:text-xl sm:mt-4">{t("countdown.days")}</span>
     </div>
     <div class="inline-flex flex-initial flex-col items-center w-24">
       <span class="text-2xl md:text-6xl">{hours}</span>
-      <span class="text-lg md:text-xl sm:mt-4">hours</span>
+      <span class="text-lg md:text-xl sm:mt-4">{t("countdown.hours")}</span>
     </div>
     <div class="inline-flex flex-initial flex-col items-center w-24">
       <span class="text-2xl md:text-6xl">{minutes}</span>
-      <span class="text-lg md:text-xl sm:mt-4">minutes</span>
+      <span class="text-lg md:text-xl sm:mt-4">{t("countdown.minutes")}</span>
     </div>
     <div class="inline-flex flex-initial flex-col items-center w-24">
       <span class="text-2xl md:text-6xl">{seconds}</span>
-      <span class="text-lg md:text-xl sm:mt-4">seconds</span>
+      <span class="text-lg md:text-xl sm:mt-4">{t("countdown.seconds")}</span>
     </div>
   {/if}
 </div>

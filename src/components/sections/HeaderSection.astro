@@ -2,6 +2,15 @@
 import { Image } from "astro:assets";
 import RosesImage from "../../assets/img/roses.png";
 import Logo from "../Logo.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl } from "../../i18n/utils";
+import { useI18n } from "../../utils/i18n";
+const { lang, t } = useI18n(Astro.url);
+const homeURL = getRelativeLocaleUrl(lang, "");
+const placeURL = getRelativeLocaleUrl(lang, "#place").slice(0, -1);
+const planURL = getRelativeLocaleUrl(lang, "#plan").slice(0, -1);
+const menuURL = getRelativeLocaleUrl(lang, "#menu").slice(0, -1);
+const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
 ---
 
 <header class="flex justify-center">
@@ -27,32 +36,32 @@ import Logo from "../Logo.astro";
       </div>
       <div class="col">
         <div class="nav-link">
-          <a href="#">Inicio</a>
+          <a href={homeURL}>{t("nav.home")}</a>
           <div class="nav-item-wrapper"></div>
         </div>
         <div class="nav-link">
-          <a href="#">El sitio</a>
+          <a href={placeURL}>{t("nav.place")}</a>
           <div class="nav-item-wrapper"></div>
         </div>
         <div class="nav-link">
-          <a href="#">El plan</a>
+          <a href={planURL}>{t("nav.plan")}</a>
           <div class="nav-item-wrapper"></div>
         </div>
         <div class="nav-link">
-          <a href="#">Regalos</a>
+          <a href={menuURL}>{t("nav.menu")}</a>
           <div class="nav-item-wrapper"></div>
         </div>
         <div class="nav-link">
-          <a href="#">Nuestra historia</a>
+          <a href={ourStoryURL}>{t("nav.ourStory")}</a>
           <div class="nav-item-wrapper"></div>
         </div>
       </div>
     </div>
     <div class="nav-footer flex justify-between">
       <div class="links content-wrapper">
-        <a href="#">ES</a>
-        <a href="#">NL</a>
-        <a href="#">EN</a>
+        <a href="/">ES</a>
+        <a href="/be/">BE</a>
+        <a href="/en/">EN</a>
       </div>
     </div>
   </div>
@@ -327,10 +336,6 @@ import Logo from "../Logo.astro";
 
     .nav-socials a {
       padding: 0 0.4em;
-    }
-
-    .nav-footer {
-      display: none;
     }
   }
 

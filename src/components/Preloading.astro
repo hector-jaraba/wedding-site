@@ -1,5 +1,7 @@
 ---
 import Logo from "./Logo.astro";
+import { useI18n } from "../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <div class="preloading w-screen h-screen absolute top-0 z-50 overflow-hidden">
@@ -12,7 +14,7 @@ import Logo from "./Logo.astro";
 
     <div class="overflow-hidden">
       <h2 class="text-reveal text-6xl font-arizonia will-change-transform">
-        Nos casamos
+        {t("preloading.message")}
       </h2>
     </div>
   </div>

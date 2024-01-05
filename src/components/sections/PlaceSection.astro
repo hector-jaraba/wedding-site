@@ -1,15 +1,21 @@
 ---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
 import { Image } from "astro:assets";
 import FlowerSVG from "../../assets/svg/flower.svg?raw";
 import JardinImage from "../../assets/img/jardin-1.png";
 import LinkButton from "../LinkButton.astro";
+
+import { useI18n } from "../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
-<div
-  class="place-section relative flex items-center flex-col mt-52 mb-16 pb-32 overflow-hidden"
+<section
+  id="place"
+  class="place-section relative flex items-center flex-col pt-52 mb-16 pb-32 overflow-hidden"
 >
   <div>
-    <h2 class="text-4xl uppercase">El sitio</h2>
+    <h2 class="text-4xl uppercase">{t("place.title")}</h2>
   </div>
   <div class="relative content-wrapper flex items-center flex-col">
     <div>
@@ -34,13 +40,13 @@ import LinkButton from "../LinkButton.astro";
             href="https://maps.app.goo.gl/E9di3PUXurc2VW4g6"
             target="_blank"
           >
-            ir al sitio
+            {t("place.goToPlace")}
           </LinkButton>
           <LinkButton
             className="w-40 xl:w-52"
             href="https://maps.app.goo.gl/xabmWaJHfepCVSLb9"
           >
-            ir al parking
+            {t("place.goToParking")}
           </LinkButton>
         </div>
       </div>
@@ -51,7 +57,7 @@ import LinkButton from "../LinkButton.astro";
       </figure>
     </div>
   </div>
-</div>
+</section>
 <script>
   import { gsap } from "../../utils/animations";
 
