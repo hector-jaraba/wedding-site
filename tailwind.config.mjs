@@ -13,6 +13,7 @@ export default {
         pink: {
           custom: "#d5a6bd",
           light: "#FFEBEE",
+          lighter: "#FFEFF3",
         },
         gold: {
           100: "#ffedca",

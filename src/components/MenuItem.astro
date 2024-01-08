@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div
+  class="food-menu-item w-full bg-white py-8 px-8 border-solid border-4 border-pink-custom sm:text-xl tracking-widest leading-10 my-20 z-20"
+>
+  <h3 class="font-arizonia text-3xl sm:text-5xl text-pink-custom mb-8">
+    {title}
+  </h3>
+
+  <slot />
+</div>

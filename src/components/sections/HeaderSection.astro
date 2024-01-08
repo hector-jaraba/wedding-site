@@ -30,8 +30,14 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
   <div id="nav-container" class="bg-white">
     <div class="nav">
       <div class="col flex relative">
-        <div class="nav-logo hidden sm:block sm:w-48 md:w-96 h-full top-0">
-          <Image src={RosesImage} alt="roses" />
+        <div class="nav-logo sm:block sm:w-48 md:w-96 h-full top-0">
+          <Image
+            quality="max"
+            width="600"
+            height="600"
+            src={RosesImage}
+            alt=""
+          />
         </div>
       </div>
       <div class="col">
@@ -255,6 +261,7 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
     justify-content: center;
     align-items: center;
     visibility: hidden;
+    opacity: 0;
   }
 
   .nav {
@@ -291,6 +298,11 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
     color: #333;
     font-size: 60px;
     font-weight: lighter;
+  }
+
+  .nav-link a:hover {
+    color: goldenrod;
+    transition: all 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
   .nav-item-wrapper:after {

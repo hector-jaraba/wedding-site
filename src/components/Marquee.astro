@@ -1,0 +1,38 @@
+---
+
+---
+
+<div
+  class="marquee relative overflow-hidden h-16 lg:h-20 p-2 w-full bg-pink-custom text-white flex items-center"
+>
+  <div
+    class="inner-marquee absolute flex justify-evenly w-[200%] overflow-hidden text-xl whitespace-nowrap md:text-2xl xl:text-4xl"
+  >
+    {
+      [1, 2, 3, 4].map(() => (
+        <>
+          <span class="w-[30%] sm:w-[20%] text-center flex-shrink-0">
+            Barra libre durante la fiesta
+          </span>
+          <span class="w-[20%] sm:w-[5%] text-center px-4 flex-shrink-0">
+            -
+          </span>
+        </>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .marquee .inner-marquee {
+    animation: marquee 15s linear infinite;
+  }
+  @keyframes marquee {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+</style>
