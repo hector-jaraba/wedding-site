@@ -2,6 +2,8 @@
 import "@fontsource-variable/lora";
 import "@fontsource/arizonia";
 
+import arizonia from "@fontsource/arizonia/files/arizonia-latin-400-normal.woff2";
+
 import { getLangFromUrl } from "../i18n/utils";
 
 interface Props {
@@ -20,10 +22,11 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="font" href={arizonia} type="font/woff2" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="main-container">
+  <body class="main-container antialiased">
     <slot />
   </body>
 </html>
