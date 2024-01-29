@@ -12,7 +12,7 @@ const menuURL = getRelativeLocaleUrl(lang, "#menu").slice(0, -1);
 const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
 ---
 
-<header class="flex justify-center">
+<header class="justify-center hidden">
   <div class="navbar text-white content-wrapper">
     <div class="site-logo relative w-20">
       <Logo />
@@ -31,9 +31,10 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
       <div class="col flex relative">
         <div class="nav-logo sm:block sm:w-48 md:w-96 h-full top-0">
           <Image
-            quality="max"
+            quality="high"
             width="600"
             height="600"
+            loading="lazy"
             src={RosesImage}
             alt=""
           />
@@ -76,14 +77,23 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
   import { gsap } from "gsap";
   import { tl as mainTl } from "../../utils/animations";
 
-  mainTl.from(
-    "header",
-    {
-      opacity: 0,
-      y: -100,
-    },
-    "header",
-  );
+  mainTl
+    .set(
+      "header",
+      {
+        display: "flex",
+      },
+      "header",
+    )
+    .from(
+      "header",
+      {
+        opacity: 0,
+        duration: 0.8,
+        y: -100,
+      },
+      "header",
+    );
 
   const tl = gsap.timeline({ paused: true });
 

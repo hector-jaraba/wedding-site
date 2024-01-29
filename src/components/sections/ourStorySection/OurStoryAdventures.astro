@@ -57,10 +57,8 @@ import japanIMG from "../../../assets/img/japan.jpg";
 
   allAdventures?.forEach((_, index, elements) => {
     const isLastElement = index === elements.length - 1;
-    console.log(isLastElement);
     if (isLastElement) return;
     const nextElement = elements[index + 1];
-    console.log(adventureTitles[index + 1]);
 
     const tween = gsap
       .timeline()

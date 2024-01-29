@@ -9,16 +9,20 @@ const { t } = useI18n(Astro.url);
   <div class="screen-2 bg-[#FFEECA] w-screen h-screen absolute top-100"></div>
   <div class="screen-3 bg-[#FADBD9] w-screen h-screen absolute top-100"></div>
   <div class="screen-4 bg-[#FFBBB7] w-screen h-screen absolute top-100"></div>
-  <div class="screen-5 content bg-[#FFFFF3] w-screen h-screen absolute top-100">
-    <Logo big black />
-
-    <div class="overflow-hidden">
-      <h2 class="text-reveal text-6xl font-arizonia will-change-transform">
+  <div
+    class="screen-5 flex justify-center items-center bg-[#FFFFF3] w-screen h-screen absolute top-100"
+  >
+    <div class="preloading-logo-wrapper overflow-hidden text-center hidden">
+      <Logo big black />
+      <h2
+        class="text-reveal relative overflow-hidden m-0 text-6xl font-arizonia will-change-transform"
+      >
         {t("preloading.message")}
       </h2>
     </div>
   </div>
 </div>
+
 <script>
   import { tl } from "../utils/animations";
   import { isProd } from "../utils/globals";
@@ -29,13 +33,17 @@ const { t } = useI18n(Astro.url);
     const htmlContainer = document.querySelector("html");
     htmlContainer?.classList.add("is-loading");
     mainContainer?.classList.add("is-loading");
-    tl.from(".text-reveal", {
-      opacity: 0,
-      duration: 2,
-      yPercent: 100,
-      ease: "power4",
-      stagger: 0.1,
+
+    tl.set(".preloading-logo-wrapper", {
+      display: "block",
     })
+      .from(".text-reveal", {
+        opacity: 0,
+        duration: 2,
+        yPercent: 100,
+        ease: "power4",
+        stagger: 0.1,
+      })
       .to(".screen-5", {
         duration: 1,
         yPercent: 100,
@@ -70,22 +78,7 @@ const { t } = useI18n(Astro.url);
       });
   };
 
-  if (isProd) {
-    startAnimation();
-  }
+  // if (isProd) {
+  startAnimation();
+  // }
 </script>
-<style>
-  .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .text-reveal {
-    overflow: hidden;
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-  }
-</style>
