@@ -9,10 +9,13 @@ import PlaceSection from "../components/sections/PlaceSection.astro";
 import PlanSection from "../components/sections/PlanSection.astro";
 import BankDetailsSection from "../components/sections/BankDetailsSection.astro";
 import FoodSection from "../components/sections/FoodSection.astro";
+import OurStorySection from "../components/sections/ourStorySection/OurStorySection.astro";
 ---
 
 <Layout title="Cathlene & Héctor">
   {isProd && <Preloading />}
+  <div class="cursor cursor--small"></div>
+  <canvas class="cursor cursor--canvas"></canvas>
   <HeaderSection />
   <HeroSection />
   <CountdownSection />
@@ -20,7 +23,39 @@ import FoodSection from "../components/sections/FoodSection.astro";
   <PlanSection />
   <BankDetailsSection />
   <FoodSection />
+  <OurStorySection />
 </Layout>
+
+<script>
+  let clientX = -100;
+  let clientY = -100;
+  const innerCursor = document.querySelector(".cursor--small");
+
+  const initCursor = () => {
+    // add listener to track the current mouse position
+    document.addEventListener("mousemove", (e) => {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    });
+
+    // transform the innerCursor to the current mouse position
+    // use requestAnimationFrame() for smooth performance
+    const render = () => {
+      innerCursor!.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      // if you are already using TweenMax in your project, you might as well
+      // use TweenMax.set() instead
+      // TweenMax.set(innerCursor, {
+      //   x: clientX,
+      //   y: clientY
+      // });
+
+      requestAnimationFrame(render);
+    };
+    requestAnimationFrame(render);
+  };
+
+  initCursor();
+</script>
 
 <style>
   main {
@@ -30,5 +65,27 @@ import FoodSection from "../components/sections/FoodSection.astro";
     max-width: calc(100% - 2rem);
     font-size: 20px;
     line-height: 1.6;
+  }
+
+  .cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+  .cursor--small {
+    width: 50px;
+    height: 50px;
+    left: -25px;
+    top: -25px;
+    border-radius: 50%;
+    z-index: 11000;
+    background: transparent;
+    border: 1px solid goldenrod;
+  }
+  .cursor--canvas {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
   }
 </style>

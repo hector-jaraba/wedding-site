@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import filipinasIMG from "../../../assets/img/filipinas.jpg";
+import japanIMG from "../../../assets/img/japan.jpg";
+---
+
+<div
+  class="adventures-section bg-pink-light my-10 flex items-center justify-center w-full py-20"
+>
+  <div class="content-wrapper flex flex-col md:flex-row">
+    <div class="w-full md:w-1/2">
+      <h3 class="text-7xl max-w-[500px] tracking-wide leading-[5.5rem]">
+        <span class="text-gold-500">Muchas</span> Aventuras
+      </h3>
+    </div>
+    <div
+      class="adventures overflow-hidden relative w-full md:w-1/2 font-arizonia text-6xl text-center text-gold-500 flex flex-nowrap [&>div]:flex-shrink-0 [&>div]:w-full"
+    >
+      <div>
+        <figure>
+          <Image src={filipinasIMG} alt="egipto" />
+        </figure>
+        <h4 class="mt-10">Filipinas</h4>
+      </div>
+      <div class="uno">
+        <figure>
+          <Image src={filipinasIMG} alt="egipto" />
+        </figure>
+        <h4 class="mt-10">Filipinas</h4>
+      </div>
+      <div class="dos">
+        <figure>
+          <Image src={filipinasIMG} alt="egipto" />
+        </figure>
+        <h4 class="mt-10">Filipinas</h4>
+      </div>
+      <div>
+        <figure>
+          <Image src={japanIMG} alt="egipto" />
+        </figure>
+        <h4 class="mt-10">Japon</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  const allAdventures =
+    document.querySelectorAll<HTMLElement>(".adventures>div");
+  const adventureTitles =
+    document.querySelectorAll<HTMLElement>(".adventures>div>h4");
+
+  const timeline = gsap.timeline();
+  const tweens: gsap.core.Tween[] = [];
+
+  allAdventures?.forEach((element, index, elements) => {
+    const isLastElement = index === elements.length - 1;
+    console.log(isLastElement);
+    if (isLastElement) return;
+    const nextElement = elements[index + 1];
+    console.log(adventureTitles[index + 1]);
+
+    const tween = gsap
+      .timeline()
+      .to(
+        adventureTitles[index],
+        {
+          opacity: 0,
+          duration: 1,
+        },
+        0,
+      )
+      .to(nextElement, {
+        xPercent: -100 * (index + 1),
+        duration: 1,
+        ease: "none",
+      })
+      .fromTo(
+        adventureTitles[index + 1],
+        {
+          yPercent: 200,
+        },
+        {
+          yPercent: 0,
+          duration: 1,
+        },
+      );
+
+    timeline.add(tween);
+  });
+
+  ScrollTrigger.create({
+    trigger: ".adventures-section",
+    start: "top 10%",
+    end: "bottom",
+    pin: true,
+    animation: timeline,
+    scrub: 1,
+    invalidateOnRefresh: true,
+  });
+</script>
