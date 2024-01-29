@@ -88,8 +88,6 @@ const { t } = useI18n(Astro.url);
     },
   });
 
-  const mm = gsap.matchMedia();
-
   tl.to(
     ".line-separator",
     {
@@ -100,7 +98,6 @@ const { t } = useI18n(Astro.url);
       scrollTrigger: {
         trigger: ".plan-items",
         start: "top center",
-        // end: "+=1200",
         end: "bottom center",
         scrub: true,
       },
@@ -109,14 +106,12 @@ const { t } = useI18n(Astro.url);
   );
 
   tl.from(".toast-item", {
-    // x: 200,
     opacity: 0.2,
     duration: 0.75,
     color: "#333",
   });
 
   tl.from(".rings-item", {
-    // x: -200,
     opacity: 0.2,
     duration: 0.75,
     delay: 0.35,
@@ -124,7 +119,6 @@ const { t } = useI18n(Astro.url);
   });
 
   tl.from(".dinner-item", {
-    // x: 200,
     opacity: 0.2,
     duration: 0.75,
     delay: 0.7,
@@ -132,7 +126,6 @@ const { t } = useI18n(Astro.url);
   });
 
   tl.from(".party-item", {
-    // x: -200,
     opacity: 0.2,
     duration: 0.75,
     delay: 1,

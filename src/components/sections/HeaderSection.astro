@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import RosesImage from "../../assets/img/roses.png";
 import Logo from "../Logo.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { getLangFromUrl } from "../../i18n/utils";
 import { useI18n } from "../../utils/i18n";
 const { lang, t } = useI18n(Astro.url);
 const homeURL = getRelativeLocaleUrl(lang, "");
