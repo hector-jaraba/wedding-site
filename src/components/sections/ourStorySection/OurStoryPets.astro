@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import tartiImage from "../../../assets/img/tarti.png";
+import jackImage from "../../../assets/img/jack.png";
+---
+
+<div
+  class="pets-section w-full overflow-hidden text-center flex flex-col items-center pb-20"
+>
+  <h3 class="text-7xl tracking-wide leading-[5.5rem] mb-10">
+    <span class="text-gold-500">Dos</span> Fieras
+  </h3>
+  <div
+    class="doggies flex flex-col md:flex-row text-4xl text-gold-500 font-arizonia text-center"
+  >
+    <figure>
+      <Image src={tartiImage} alt="tarti" width={400} />
+      <h4 class="max-w-min inline">Tartiflat</h4>
+    </figure>
+    <figure class="flex flex-col justify-end items-center text-center">
+      <Image src={jackImage} alt="jack" width={300} />
+      <h4 class="max-w-min inline">Jack</h4>
+    </figure>
+  </div>
+</div>
+
+<script>
+  import { tl } from "../../../utils/animations";
+
+  const doggies = document.querySelectorAll(".doggies>figure");
+
+  doggies?.forEach((dog, index) => {
+    tl.from(dog, {
+      xPercent: index % 2 === 0 ? -200 : 200,
+      opacity: 0,
+      duration: 10,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: dog,
+        scrub: true,
+        end: "bottom",
+        markers: false,
+      },
+    });
+  });
+</script>
