@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import CircularText from "../../CircularText.astro";
+import BigFlowerLightImage from "../../../assets/svg/big-flower-light.svg";
+---
+
+<div
+  class="end-section w-full flex flex-col justify-center items-center bg-gold-500"
+>
+  <CircularText
+    className="-top-[120px]"
+    text="Proximo capitulo, nuestra boda!"
+  />
+  <div
+    class="w-full relative overflow-hidden flex flex-col justify-center pb-52"
+  >
+    <div class="content-wrapper self-center text-center">
+      <h3 class="text-6xl md:text-9xl font-arizonia text-white">
+        Os esperamos!
+      </h3>
+    </div>
+    <div class="relative">
+      <figure
+        class="absolute -left-[300px] sm:-left-[200px] lg:-left-96 lg:-top-20"
+      >
+        <Image
+          class="hidden lg:block"
+          width={1000}
+          src={BigFlowerLightImage}
+          alt=""
+        />
+        <Image class="lg:hidden" width={500} src={BigFlowerLightImage} alt="" />
+      </figure>
+      <figure
+        class="absolute -right-[300px] sm:-right-[200px] lg:-right-96 lg:-top-20"
+      >
+        <Image
+          class="hidden lg:block"
+          width={1000}
+          src={BigFlowerLightImage}
+          alt=""
+        />
+        <Image class="lg:hidden" width={500} src={BigFlowerLightImage} alt="" />
+      </figure>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "../../../utils/animations";
+
+  gsap.to(".circular-text", {
+    rotate: 320,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".end-section",
+      start: "top-=20% bottom",
+      end: "top top",
+      scrub: true,
+    },
+  });
+</script>
