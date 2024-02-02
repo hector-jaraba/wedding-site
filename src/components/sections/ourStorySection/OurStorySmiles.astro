@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import bigFlowerImage from "../../../assets/svg/big-flower.svg";
+import italiaRisaImage from "../../../assets/img/risas/italia-risa.jpg";
+import amberesImage from "../../../assets/img/risas/amberes-love-2.jpg";
+import belgicaBesoImage from "../../../assets/img/risas/belgica-beso.jpg";
+import valenciaRisaImage from "../../../assets/img/risas/valencia-risa.jpg";
+import navidadRisaImage from "../../../assets/img/risas/navidad-risa.jpg";
+---
+
+<div
+  class="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden py-28"
+>
+  <div class="content-wrapper relative z-10 flex flex-col justify-center">
+    <div class="flex gap-4 md:gap-8 xl:gap-12">
+      <figure class="relative top-32">
+        <Image width={400} src={navidadRisaImage} alt="" />
+      </figure>
+      <figure>
+        <Image width={550} src={italiaRisaImage} alt="" />
+      </figure>
+      <figure class="relative top-12">
+        <Image width={375} src={amberesImage} alt="" />
+      </figure>
+    </div>
+
+    <h3
+      class="text-7xl min-w-max tracking-wide leading-[5.5rem] bg-white self-center my-28"
+    >
+      <span class="text-gold-500">Mil</span> Risas
+    </h3>
+    <div class="flex self-center w-full">
+      <figure class="w-1/2 relative px-4 flex justify-center -top-10">
+        <Image width={550} src={valenciaRisaImage} alt="" />
+      </figure>
+      <figure class="w-1/2 px-4 flex justify-center">
+        <Image width={550} src={belgicaBesoImage} alt="" />
+      </figure>
+    </div>
+  </div>
+  <figure class="absolute w-full overflow-hidden flex justify-center">
+    <Image
+      class="max-w-[190%] sm:max-w-full xl:max-w-[1300px]"
+      width={1300}
+      src={bigFlowerImage}
+      alt=""
+    />
+  </figure>
+</div>

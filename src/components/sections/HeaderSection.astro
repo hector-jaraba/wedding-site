@@ -12,8 +12,8 @@ const menuURL = getRelativeLocaleUrl(lang, "#menu").slice(0, -1);
 const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
 ---
 
-<header class="justify-center hidden">
-  <div class="navbar text-white content-wrapper">
+<header class="navbar-section justify-center hidden">
+  <div class="navbar text-white content-wrapper top-4">
     <div class="site-logo relative w-20">
       <Logo />
       <div class="negative-logo absolute bottom-0 overflow-hidden w-full h-0">
@@ -26,7 +26,14 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
       </div>
     </div>
   </div>
-  <div id="nav-container" class="bg-white">
+  <div id="nav-container" class="bg-white flex-col">
+    <div class="flex self-center sm:hidden">
+      <div class="links [&>a]:mx-8 mb-10">
+        <a href="/">ES</a>
+        <a href="/be/">BE</a>
+        <a href="/en/">EN</a>
+      </div>
+    </div>
     <div class="nav">
       <div class="col flex relative">
         <div class="nav-logo sm:block sm:w-48 md:w-96 h-full top-0">
@@ -63,7 +70,7 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
         </div>
       </div>
     </div>
-    <div class="nav-footer flex justify-between">
+    <div class="nav-footer hidden sm:flex">
       <div class="links content-wrapper">
         <a href="/">ES</a>
         <a href="/be/">BE</a>
@@ -331,7 +338,6 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
     width: 100%;
     bottom: 0;
     padding: 2em 1em;
-    display: flex;
     justify-content: space-between;
   }
 

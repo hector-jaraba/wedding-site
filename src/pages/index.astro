@@ -15,8 +15,8 @@ import OurStorySection from "../components/sections/ourStorySection/OurStorySect
 <Layout title="Cathlene & Héctor">
   {isProd && <Preloading />}
   <!-- <Preloading /> -->
-  <div class="cursor cursor--small"></div>
-  <canvas class="cursor cursor--canvas"></canvas>
+  <div class="cursor cursor--small hidden md:block"></div>
+  <canvas class="cursor cursor--canvas hidden md:block"></canvas>
   <HeaderSection />
   <HeroSection />
   <CountdownSection />
@@ -28,7 +28,7 @@ import OurStorySection from "../components/sections/ourStorySection/OurStorySect
 </Layout>
 
 <script>
-  import gsap from "gsap";
+  import { gsap, ScrollTrigger } from "../utils/animations";
 
   let clientX = -100;
   let clientY = -100;
@@ -53,9 +53,31 @@ import OurStorySection from "../components/sections/ourStorySection/OurStorySect
   };
 
   initCursor();
+
+  const navbar = document.querySelector(".navbar-section>.navbar");
+  const navBtn = document.getElementById("menu-toggle-btn");
+
+  ScrollTrigger.create({
+    start: "top -300",
+    end: 99999,
+    toggleClass: {
+      className: "navbar--hide",
+      targets: ".navbar-section>.navbar",
+    },
+    onUpdate: ({ direction }) => {
+      if (navBtn?.classList.contains("active")) {
+        return;
+      }
+      if (direction == -1) {
+        gsap.to(navbar, { top: 16, duration: 0.5 });
+      } else {
+        gsap.to(navbar, { top: -50, duration: 1 });
+      }
+    },
+  });
 </script>
 
-<style>
+<style is:global>
   main {
     margin: auto;
     padding: 1rem;

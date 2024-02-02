@@ -7,4 +7,4 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const tl = gsap.timeline();
 
-export { gsap, tl };
+export { gsap, tl, ScrollTrigger };

@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import filipinasIMG from "../../../assets/img/filipinas.jpg";
-import japanIMG from "../../../assets/img/japan.jpg";
+import filipinasImage from "../../../assets/img/aventuras/filipinas.jpg";
+import italiaImage from "../../../assets/img/aventuras/italia.jpg";
+import egiptoImage from "../../../assets/img/aventuras/egipto.jpg";
+import japonImage from "../../../assets/img/aventuras/japon.jpg";
 ---
 
 <>
@@ -19,25 +21,25 @@ import japanIMG from "../../../assets/img/japan.jpg";
       >
         <div>
           <figure>
-            <Image src={filipinasIMG} alt="egipto" />
+            <Image src={filipinasImage} alt="filipinas" />
           </figure>
           <h4 class="mt-10">Filipinas</h4>
         </div>
         <div class="absolute w-full left-[100%] overflow-hidden">
           <figure>
-            <Image src={filipinasIMG} alt="egipto" />
+            <Image src={italiaImage} alt="italia" />
           </figure>
-          <h4 class="mt-10">Filipinas</h4>
+          <h4 class="mt-10">Italia</h4>
         </div>
         <div class="absolute w-full left-[100%] overflow-hidden">
           <figure>
-            <Image src={filipinasIMG} alt="egipto" />
+            <Image src={egiptoImage} alt="egipto" />
           </figure>
-          <h4 class="mt-10">Filipinas</h4>
+          <h4 class="mt-10">Egipto</h4>
         </div>
         <div class="absolute w-full left-[100%] overflow-hidden">
           <figure>
-            <Image src={japanIMG} alt="egipto" />
+            <Image src={japonImage} alt="japon" />
           </figure>
           <h4 class="mt-10">Japon</h4>
         </div>
