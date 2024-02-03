@@ -6,8 +6,7 @@ import ringsIconSVG from "../../assets/svg/ringsIcon.svg?raw";
 import toastIconSVG from "../../assets/svg/toastIcon.svg?raw";
 import dinnerIconSVG from "../../assets/svg/dinnerIcon.svg?raw";
 import hojaSVG from "../../assets/svg/hoja.svg?raw";
-import inifiniteSVG from "../../assets/svg/infinite.svg?raw";
-import endHourSVG from "../../assets/svg/endHour.svg?raw";
+import endHourSVG from "../../assets/svg/end-hour.svg?raw";
 import { useI18n } from "../../utils/i18n";
 const { t } = useI18n(Astro.url);
 ---
@@ -74,7 +73,9 @@ const { t } = useI18n(Astro.url);
         </div>
       </div>
     </div>
-    <Fragment set:html={inifiniteSVG} />
+    <figure class="my-10">
+      <Fragment set:html={endHourSVG} />
+    </figure>
   </div>
 </section>
 <script>
@@ -148,7 +149,7 @@ const { t } = useI18n(Astro.url);
     delay: 0.7,
   });
 
-  tl.to(".infinite-svg .infinite-fill", {
+  tl.to(".end-hour-svg .end-hour-svg--fill", {
     fillOpacity: 1,
     duration: 1,
     delay: 1,
