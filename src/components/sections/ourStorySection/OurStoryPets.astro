@@ -2,24 +2,27 @@
 import { Image } from "astro:assets";
 import tartiImage from "../../../assets/img/tarti.png";
 import jackImage from "../../../assets/img/jack.png";
+import { useI18n } from "../../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <div
   class="pets-section w-full overflow-hidden text-center flex flex-col items-center pb-20"
 >
-  <h3 class="text-7xl tracking-wide leading-[5.5rem] mb-10">
-    <span class="text-gold-500">Dos</span> Fieras
-  </h3>
+  <h3
+    class="text-7xl tracking-wide leading-[5.5rem] mb-10"
+    set:html={t("ourStory.pets.title")}
+  />
   <div
     class="doggies flex flex-col md:flex-row text-4xl text-gold-500 font-arizonia text-center"
   >
     <figure>
       <Image src={tartiImage} alt="tarti" width={400} />
-      <h4 class="max-w-min inline">Tartiflat</h4>
+      <h4 class="max-w-min inline">{t("ourStory.pet1.name")}</h4>
     </figure>
     <figure class="flex flex-col justify-end items-center text-center">
       <Image src={jackImage} alt="jack" width={300} />
-      <h4 class="max-w-min inline">Jack</h4>
+      <h4 class="max-w-min inline">{t("ourStory.pet2.name")}</h4>
     </figure>
   </div>
 </div>

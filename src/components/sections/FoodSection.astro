@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import FlowerIMG from "../../assets/img/Flower.png";
 import MenuItem from "../MenuItem.astro";
 import Marquee from "../Marquee.astro";
+import { useI18n } from "../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <section
@@ -10,7 +12,7 @@ import Marquee from "../Marquee.astro";
   class="food-menu-section relative flex items-center flex-col pt-10 pb-0 mb-10 overflow-hidden"
 >
   <div class="title-food-menu relative py-8 z-10">
-    <h2 class="text-6xl uppercase">El Menu</h2>
+    <h2 class="text-6xl uppercase">{t("foodMenu.title")}</h2>
   </div>
 
   <div
@@ -29,30 +31,26 @@ import Marquee from "../Marquee.astro";
       alt=""
     />
     <div class="relative content-wrapper flex justify-center flex-col sm:p-20">
-      <MenuItem title="Coctel">
+      <MenuItem title={t("foodMenu.item1.title")}>
         <p>
-          Tosta de foie y polvo de avellana / Reconstruccion de arroz negro en
-          croqueta / Brocheta ibérica con salsa de melaza / Focaccia de
-          verduritas / Langostinos hilados con holandesa / Tabla de quesos del
-          mundo / Croquetas de ibéricos / Barra Wine & Beer
+          {t("foodMenu.item1.content")}
         </p>
       </MenuItem>
-      <MenuItem title="Primer plato">
-        <p>Solomillo de salmón con crema de aguacate y setas</p>
+      <MenuItem title={t("foodMenu.item2.title")}>
+        <p>{t("foodMenu.item2.content")}</p>
       </MenuItem>
-      <MenuItem title="Segundo plato">
-        <p>Meloso ibérico con toffé de peras</p>
+      <MenuItem title={t("foodMenu.item3.title")}>
+        <p>{t("foodMenu.item3.content")}</p>
       </MenuItem>
-      <MenuItem title="Postre">
-        <p>Crema de café y helado de leche quemada.</p>
-        <p>Tarta Nupcial / Café e infusiones / Licores y brandy</p>
+      <MenuItem title={t("foodMenu.item4.title")}>
+        {t("foodMenu.item4.content")}
       </MenuItem>
-      <MenuItem title="Bodega">
-        <p>Vino Blanco y Tinto D.O. / Cava Brut / Cervezas, refrescos y agua</p>
+      <MenuItem title={t("foodMenu.item5.title")}>
+        <p>{t("foodMenu.item5.content")}</p>
       </MenuItem>
     </div>
   </div>
-  <Marquee />
+  <Marquee text={t("foodMenu.rollingText")} />
 </section>
 
 <script>

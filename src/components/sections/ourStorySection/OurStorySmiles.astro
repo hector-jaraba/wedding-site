@@ -6,6 +6,8 @@ import amberesImage from "../../../assets/img/risas/amberes-love-2.jpg";
 import belgicaBesoImage from "../../../assets/img/risas/belgica-beso.jpg";
 import valenciaRisaImage from "../../../assets/img/risas/valencia-risa.jpg";
 import navidadRisaImage from "../../../assets/img/risas/navidad-risa.jpg";
+import { useI18n } from "../../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <div
@@ -28,9 +30,8 @@ import navidadRisaImage from "../../../assets/img/risas/navidad-risa.jpg";
 
     <h3
       class="text-7xl min-w-max tracking-wide leading-[5.5rem] bg-white self-center my-28"
-    >
-      <span class="text-gold-500">Mil</span> Risas
-    </h3>
+      set:html={t("ourStory.smiles.title")}
+    />
     <div class="flex self-center w-full">
       <figure class="w-1/2 relative px-4 flex justify-center -top-10">
         <Image width={550} src={valenciaRisaImage} alt="" />

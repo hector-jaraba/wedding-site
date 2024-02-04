@@ -1,5 +1,9 @@
 ---
+interface Props {
+  text: string;
+}
 
+const { text } = Astro.props;
 ---
 
 <div
@@ -12,7 +16,7 @@
       [1, 2, 3, 4].map(() => (
         <>
           <span class="w-[30%] sm:w-[20%] text-center flex-shrink-0">
-            Barra libre durante la fiesta
+            {text}
           </span>
           <span class="w-[20%] sm:w-[5%] text-center px-4 flex-shrink-0">
             -

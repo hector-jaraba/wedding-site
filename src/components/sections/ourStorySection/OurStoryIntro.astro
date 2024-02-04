@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import UsIMG from "../../../assets/img/us.jpg";
+import { useI18n } from "../../../utils/i18n";
+const { t } = useI18n(Astro.url);
 ---
 
 <div class="content-wrapper flex justify-between py-10 flex-col md:flex-row">
@@ -20,11 +22,10 @@ import UsIMG from "../../../assets/img/us.jpg";
     </div>
   </div>
   <div class="flex flex-grow justify-center items-center text-2xl">
-    <div class="max-w-[450px] [&>p]:mb-6 tracking-wider">
-      <p>Un Español y una Belga</p>
-      <p>Nos conocimos en la universidad</p>
-      <p>Hace ya ocho años y desde entonces no hemos parado de reir</p>
-    </div>
+    <div
+      class="max-w-[450px] [&>p]:mb-6 tracking-wider"
+      set:html={t("ourStory.intro")}
+    />
   </div>
 </div>
 <style>

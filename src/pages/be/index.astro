@@ -1,32 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Preloading from "../../components/Preloading.astro";
-import { isProd } from "../../utils/globals";
-import HeroSection from "../../components/sections/HeroSection.astro";
-import CountdownSection from "../../components/sections/CountdownSection.astro";
-import HeaderSection from "../../components/sections/HeaderSection.astro";
-import PlaceSection from "../../components/sections/PlaceSection.astro";
-import PlanSection from "../../components/sections/PlanSection.astro";
-import BankDetailsSection from "../../components/sections/BankDetailsSection.astro";
+import SectionsWrapper from "../../components/SectionsWrapper.astro";
 ---
 
 <Layout title="Cathlene & Héctor">
-  {isProd && <Preloading />}
-  <HeaderSection />
-  <HeroSection />
-  <CountdownSection />
-  <PlaceSection />
-  <PlanSection />
-  <BankDetailsSection />
+  <SectionsWrapper />
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 1440px;
-    max-width: calc(100% - 2rem);
-    font-size: 20px;
-    line-height: 1.6;
-  }
-</style>
