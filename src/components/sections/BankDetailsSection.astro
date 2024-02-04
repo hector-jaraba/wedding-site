@@ -1,6 +1,7 @@
 ---
-import WhiteRoseSVG from "../../assets/svg/whiteRose.svg?raw";
+import WhiteRoseSVG from "../../assets/svg/whiteRose.svg";
 import { useI18n } from "../../utils/i18n";
+import { Image } from "astro:assets";
 const { t } = useI18n(Astro.url);
 ---
 
@@ -21,7 +22,7 @@ const { t } = useI18n(Astro.url);
       <div
         class="absolute z-0 sm:z-10 rotate-180 -top-20 -right-20 sm:rotate-0 sm:-top-8 sm:-left-16 md:-top-9 md:-left-10 lg:left-20 xl:-top-32 xl:left-10 w-[280px] md:w-[340px] xl:w-[500px]"
       >
-        <Fragment set:html={WhiteRoseSVG} />
+        <Image src={WhiteRoseSVG} alt="" />
       </div>
       <div
         class="relative sm:h-auto bg-slate-200 flex w-full p-6 md:p-10 border-solid border-4 border-gold-500 text-gold-500 sm:justify-end"

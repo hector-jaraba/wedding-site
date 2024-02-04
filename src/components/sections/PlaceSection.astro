@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import FlowerSVG from "../../assets/svg/flower.svg?raw";
+import FlowerSVG from "../../assets/svg/flower.svg";
 import JardinImage from "../../assets/img/jardin-1.png";
 import LinkButton from "../LinkButton.astro";
 
@@ -16,8 +16,8 @@ const { t } = useI18n(Astro.url);
     <h2 class="text-4xl uppercase">{t("place.title")}</h2>
   </div>
   <div class="relative content-wrapper flex items-center flex-col">
-    <div>
-      <Fragment set:html={FlowerSVG} />
+    <div class="w-[1115px] h-[658px]">
+      <Image width="1115" src={FlowerSVG} alt="" />
     </div>
 
     <div
@@ -51,7 +51,14 @@ const { t } = useI18n(Astro.url);
       <figure
         class="place-img relative -bottom-14 sm:absolute sm:ml-72 md:ml-96 sm:top-20 md:bottom-auto"
       >
-        <Image src={JardinImage} alt="jardines LLebeig" />
+        <Image
+          src={JardinImage}
+          width="590"
+          height="489"
+          quality="high"
+          loading="eager"
+          alt="jardines LLebeig"
+        />
       </figure>
     </div>
   </div>

@@ -7,7 +7,7 @@ const { t } = useI18n(Astro.url);
 ---
 
 <div
-  class="pets-section w-full overflow-hidden text-center flex flex-col items-center pb-20"
+  class="pets-section w-full overflow-hidden text-center flex flex-col items-center py-20"
 >
   <h3
     class="text-7xl tracking-wide leading-[5.5rem] mb-10"
@@ -17,11 +17,11 @@ const { t } = useI18n(Astro.url);
     class="doggies flex flex-col md:flex-row text-4xl text-gold-500 font-arizonia text-center"
   >
     <figure>
-      <Image src={tartiImage} alt="tarti" width={400} />
+      <Image src={tartiImage} quality="high" alt="tarti" width={400} />
       <h4 class="max-w-min inline">{t("ourStory.pet1.name")}</h4>
     </figure>
     <figure class="flex flex-col justify-end items-center text-center">
-      <Image src={jackImage} alt="jack" width={300} />
+      <Image src={jackImage} quality="high" alt="jack" width={300} />
       <h4 class="max-w-min inline">{t("ourStory.pet2.name")}</h4>
     </figure>
   </div>

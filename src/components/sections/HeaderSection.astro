@@ -1,9 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import RosesImage from "../../assets/img/roses.png";
+import RosesSVG from "../../assets/svg/roses.svg";
 import Logo from "../Logo.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useI18n } from "../../utils/i18n";
+import { Image } from "astro:assets";
 const { lang, t } = useI18n(Astro.url);
 const homeURL = getRelativeLocaleUrl(lang, "");
 const placeURL = getRelativeLocaleUrl(lang, "#place").slice(0, -1);
@@ -37,14 +37,7 @@ const ourStoryURL = getRelativeLocaleUrl(lang, "#story").slice(0, -1);
     <div class="nav">
       <div class="col flex relative">
         <div class="nav-logo sm:block sm:w-48 md:w-96 h-full top-0">
-          <Image
-            quality="high"
-            width="600"
-            height="600"
-            loading="lazy"
-            src={RosesImage}
-            alt=""
-          />
+          <Image src={RosesSVG} alt="" />
         </div>
       </div>
       <div class="col">

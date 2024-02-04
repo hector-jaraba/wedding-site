@@ -1,11 +1,12 @@
 ---
-import leafTitleSVG from "../../assets/svg/leafTitle.svg?raw";
-import startHourSVG from "../../assets/svg/startHour.svg?raw";
-import partyIconSVG from "../../assets/svg/partyIcon.svg?raw";
-import ringsIconSVG from "../../assets/svg/ringsIcon.svg?raw";
-import toastIconSVG from "../../assets/svg/toastIcon.svg?raw";
-import dinnerIconSVG from "../../assets/svg/dinnerIcon.svg?raw";
-import hojaSVG from "../../assets/svg/hoja.svg?raw";
+import leafTitleSVG from "../../assets/svg/leafTitle.svg";
+import startHourSVG from "../../assets/svg/startHour.svg";
+import partyIconSVG from "../../assets/svg/partyIcon.svg";
+import ringsIconSVG from "../../assets/svg/ringsIcon.svg";
+import toastIconSVG from "../../assets/svg/toastIcon.svg";
+import dinnerIconSVG from "../../assets/svg/dinnerIcon.svg";
+import hojaSVG from "../../assets/svg/hoja.svg";
+import { Image } from "astro:assets";
 import endHourSVG from "../../assets/svg/end-hour.svg?raw";
 import { useI18n } from "../../utils/i18n";
 const { t } = useI18n(Astro.url);
@@ -17,23 +18,23 @@ const { t } = useI18n(Astro.url);
 >
   <div class="mb-20 flex flex-col justify-center items-center">
     <h2 class="text-4xl uppercase">{t("plan.title")}</h2>
-    <Fragment set:html={leafTitleSVG} />
+    <Image src={leafTitleSVG} alt="" />
   </div>
 
   <div
     class="leaf-top absolute self-end -right-96 sm:-right-80 top-40 mt-80 z-20"
   >
-    <Fragment set:html={hojaSVG} />
+    <Image src={hojaSVG} alt="" />
   </div>
 
   <div
     class="leaf-bottom absolute rotate-180 -left-96 sm:-left-80 mt-36 bottom-64 z-20"
   >
-    <Fragment set:html={hojaSVG} />
+    <Image src={hojaSVG} alt="" />
   </div>
 
   <div class="relative content-wrapper flex items-center flex-col">
-    <Fragment set:html={startHourSVG} />
+    <Image src={startHourSVG} alt="" />
 
     <div class="plan-items relative mt-28 w-full flex flex-col">
       <div
@@ -44,7 +45,7 @@ const { t } = useI18n(Astro.url);
         <div
           class="toast-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
-          <Fragment set:html={toastIconSVG} />
+          <Image src={toastIconSVG} alt="" />
           <h3 class="text-3xl mt-4">{t("plan.toast")}</h3>
         </div>
       </div>
@@ -52,7 +53,7 @@ const { t } = useI18n(Astro.url);
         <div
           class="rings-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
-          <Fragment set:html={ringsIconSVG} />
+          <Image src={ringsIconSVG} alt="" />
           <h3 class="text-3xl mt-4">{t("plan.ceremony")}</h3>
         </div>
       </div>
@@ -60,7 +61,7 @@ const { t } = useI18n(Astro.url);
         <div
           class="dinner-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
-          <Fragment set:html={dinnerIconSVG} />
+          <Image src={dinnerIconSVG} alt="" />
           <h3 class="text-3xl mt-4">{t("plan.dinner")}</h3>
         </div>
       </div>
@@ -68,7 +69,7 @@ const { t } = useI18n(Astro.url);
         <div
           class="party-item text-center font-arizonia text-gold-500 bg-slate-200 z-10 py-4"
         >
-          <Fragment set:html={partyIconSVG} />
+          <Image src={partyIconSVG} alt="" />
           <h3 class="text-3xl mt-4">{t("plan.party")}</h3>
         </div>
       </div>
