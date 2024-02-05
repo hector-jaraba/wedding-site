@@ -18,6 +18,7 @@
     "@fontsource/arizonia": "^5.0.18",
     "@studio-freight/lenis": "^1.0.33",
     "astro": "^4.0.7",
+    "astro-critters": "^2.0.11",
     "gsap": "^3.12.4",
     "photoswipe": "^5.4.3",
     "svelte": "^4.2.8",
