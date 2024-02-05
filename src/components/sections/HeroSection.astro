@@ -10,16 +10,11 @@ const { t } = useI18n(Astro.url);
 >
   <Image
     src={heroImage}
-    quality="high"
     alt="los novios"
-    class="absolute object-cover flex-shrink-0 min-w-full min-h-full hidden sm:block"
-  />
-  <Image
-    src={heroImage}
-    quality="max"
-    alt="los novios"
-    width="900"
-    class="absolute object-cover flex-shrink-0 min-w-full min-h-full sm:hidden"
+    widths={[900, heroImage.width]}
+    sizes={`(max-width: 720px) 900px, ${heroImage.width}px`}
+    loading="eager"
+    class="absolute object-cover flex-shrink-0 min-w-full min-h-full"
   />
   <div class="absolute font-arizonia text-yellow-100 text-center mt-48">
     <h1 class="title text-5xl md:text-8xl m-0">{t("hero.names")}</h1>
