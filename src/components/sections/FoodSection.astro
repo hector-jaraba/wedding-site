@@ -33,6 +33,11 @@ const { t } = useI18n(Astro.url);
       alt=""
     />
     <div class="relative content-wrapper flex justify-center flex-col sm:p-20">
+      <MenuItem>
+        <p>
+          {t("foodMenu.notice")}
+        </p>
+      </MenuItem>
       <MenuItem title={t("foodMenu.item1.title")}>
         <p>
           {t("foodMenu.item1.content")}

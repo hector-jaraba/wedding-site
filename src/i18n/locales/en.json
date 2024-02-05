@@ -23,6 +23,7 @@
   "bankAccount.title": "Account number",
   "bankAccount.thanks": "Thank you!",
   "foodMenu.title": "The menu",
+  "foodMenu.notice": "If you have any food preference (vegetarian, etc.) or allergy, please inform the bride and groom as soon as possible and we will take it into account",
   "foodMenu.item1.title": "Cocktail",
   "foodMenu.item1.content": "Buffet of international cheeses with jams / Gazpacho with octopus taco / Suckling pig with sweet paprika cream / Seafood temptation and piri-piri mayonnaise / Hake ceviche brioche / Spun prawns with hollandaise / Cold scallop and mussel cream / Wine & Beer bar",
   "foodMenu.item2.title": "First course",
@@ -44,7 +45,7 @@
   "ourStory.pets.title": "<span class='text-gold-500'>Two</span> Beasts",
   "ourStory.pet1.name": "Tartiflat",
   "ourStory.pet2.name": "Jack",
-  "ourStory.smiles.title": "<span class='text-gold-500'>A Thousand</span> Laughter",
+  "ourStory.smiles.title": "<span class='text-gold-500'>A Thousand</span> Laughs",
   "endSection.circularText": "Next chapter, our wedding!",
   "endSection.text": "We are waiting for you!"
 }

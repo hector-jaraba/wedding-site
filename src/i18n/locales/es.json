@@ -23,6 +23,7 @@
   "bankAccount.title": "Numero de cuenta",
   "bankAccount.thanks": "Gracias!",
   "foodMenu.title": "El menu",
+  "foodMenu.notice": "Si tienes alguna preferencia alimentaria (vegetariano, etc.) o alergia informa a los novios lo antes posible y lo tendremos en cuenta",
   "foodMenu.item1.title": "Cóctel",
   "foodMenu.item1.content": "Buffet de quesos internacionales con confituras / Gazpacho acompañado de taco de pulpo / Cochinillo con crema de pimentón dulce / Tentación de mariscos y mayonesa de piri-piri / Brioche de ceviche de merluza / Langostinos hilados con holandesa / Vieira fria y crema de mejillones /  Barra Wine & Beer",
   "foodMenu.item2.title": "Primer plato",
