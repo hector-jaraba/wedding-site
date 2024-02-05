@@ -29,6 +29,8 @@ import OurStorySection from "./sections/ourStorySection/OurStorySection.astro";
 
 <script>
   import { gsap, ScrollTrigger } from "../utils/animations";
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
 
   let clientX = -100;
   let clientY = -100;
@@ -75,6 +77,17 @@ import OurStorySection from "./sections/ourStorySection/OurStorySection.astro";
       }
     },
   });
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#my-gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+    arrowPrev: false,
+    arrowNext: false,
+    counter: false,
+    zoom: false,
+  });
+  lightbox.init();
 </script>
 
 <style>

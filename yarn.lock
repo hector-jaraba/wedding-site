@@ -4185,6 +4185,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"photoswipe@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "photoswipe@npm:5.4.3"
+  checksum: 835d9601cf14aacbc5ae86cbd928b5d804a016b3626b0650f27f7e9f78527484377177e836bc858644a017d2aaa960ac7e07c409ee476dfdedcb45ada7febb58
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
@@ -5941,6 +5948,7 @@ __metadata:
     "@types/vivus": "npm:^0.4.7"
     astro: "npm:^4.0.7"
     gsap: "npm:^3.12.4"
+    photoswipe: "npm:^5.4.3"
     prettier: "npm:^3.1.1"
     prettier-plugin-astro: "npm:^0.12.3"
     prettier-plugin-svelte: "npm:^3.1.2"

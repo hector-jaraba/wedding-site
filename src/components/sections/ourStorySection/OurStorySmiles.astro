@@ -7,6 +7,12 @@ import belgicaBesoImage from "../../../assets/img/risas/belgica-beso.jpg";
 import valenciaRisaImage from "../../../assets/img/risas/valencia-risa.jpg";
 import navidadRisaImage from "../../../assets/img/risas/navidad-risa.jpg";
 import { useI18n } from "../../../utils/i18n";
+import { getImage } from "astro:assets";
+const cuencaRisaImageOptimize = await getImage({ src: cuencaRisaImage });
+const amberesImageOptimize = await getImage({ src: amberesImage });
+const belgicaBesoImageOptimize = await getImage({ src: belgicaBesoImage });
+const valenciaRisaImageOptimize = await getImage({ src: valenciaRisaImage });
+const navidadRisaImageOptimize = await getImage({ src: navidadRisaImage });
 const { t } = useI18n(Astro.url);
 ---
 
@@ -15,16 +21,41 @@ const { t } = useI18n(Astro.url);
 >
   <div
     class="smiles-content content-wrapper relative z-10 flex flex-col justify-center"
+    id="my-gallery"
   >
     <div class="flex gap-4 md:gap-8 xl:gap-12">
       <figure class="relative top-32">
-        <Image width={400} src={navidadRisaImage} alt="" />
+        <a
+          href={navidadRisaImageOptimize.src}
+          data-pswp-width="684"
+          data-pswp-height="912"
+          target="_blank"
+          aria-label="hacer imagen grande"
+        >
+          <Image width={400} src={navidadRisaImage} alt="" />
+        </a>
       </figure>
       <figure>
-        <Image width={550} src={cuencaRisaImage} alt="" />
+        <a
+          href={cuencaRisaImageOptimize.src}
+          data-pswp-width="912"
+          data-pswp-height="684"
+          target="_blank"
+          aria-label="hacer imagen grande"
+        >
+          <Image width={550} src={cuencaRisaImage} alt="" />
+        </a>
       </figure>
       <figure class="relative top-12">
-        <Image width={375} src={amberesImage} alt="" />
+        <a
+          href={amberesImageOptimize.src}
+          data-pswp-width="684"
+          data-pswp-height="912"
+          target="_blank"
+          aria-label="hacer imagen grande"
+        >
+          <Image width={375} src={amberesImage} alt="" />
+        </a>
       </figure>
     </div>
 
@@ -34,10 +65,26 @@ const { t } = useI18n(Astro.url);
     />
     <div class="flex self-center w-full">
       <figure class="w-1/2 relative px-4 flex justify-center -top-10">
-        <Image width={550} src={valenciaRisaImage} alt="" />
+        <a
+          href={valenciaRisaImageOptimize.src}
+          data-pswp-width="938"
+          data-pswp-height="704"
+          target="_blank"
+          aria-label="hacer imagen grande"
+        >
+          <Image width={550} src={valenciaRisaImage} alt="" />
+        </a>
       </figure>
       <figure class="w-1/2 px-4 flex justify-center">
-        <Image width={550} src={belgicaBesoImage} alt="" />
+        <a
+          href={belgicaBesoImageOptimize.src}
+          data-pswp-width="938"
+          data-pswp-height="704"
+          target="_blank"
+          aria-label="hacer imagen grande"
+        >
+          <Image width={550} src={belgicaBesoImage} alt="" />
+        </a>
       </figure>
     </div>
   </div>
