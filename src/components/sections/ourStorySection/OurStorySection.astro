@@ -8,7 +8,10 @@ import { useI18n } from "../../../utils/i18n";
 const { t } = useI18n(Astro.url);
 ---
 
-<section id="story" class="relative flex items-center flex-col pt-10 pb-0 mb-0">
+<section
+  id="story"
+  class="relative flex items-center flex-col pt-10 pb-0 mb-0 overflow-hidden"
+>
   <div class="relative py-8 z-10 text-center">
     <h2 class="text-6xl uppercase">{t("ourStory.title")}</h2>
   </div>

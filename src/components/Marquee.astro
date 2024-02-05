@@ -15,10 +15,10 @@ const { text } = Astro.props;
     {
       [1, 2, 3, 4].map(() => (
         <>
-          <span class="w-[30%] sm:w-[20%] text-center flex-shrink-0">
+          <span class="w-[50%] sm:w-[30%] lg:w-[20%] text-center flex-shrink-0 mb-1">
             {text}
           </span>
-          <span class="w-[20%] sm:w-[5%] text-center px-4 flex-shrink-0">
+          <span class="hidden sm:w-[20%] lg:w-[5%] text-center px-4 flex-shrink-0">
             -
           </span>
         </>
