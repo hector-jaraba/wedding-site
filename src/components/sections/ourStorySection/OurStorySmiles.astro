@@ -1,4 +1,5 @@
 ---
+import "photoswipe/style.css";
 import { Image } from "astro:assets";
 import bigFlowerImage from "../../../assets/svg/big-flower.svg";
 import cuencaRisaImage from "../../../assets/img/risas/cuenca-risa.jpg";
@@ -100,6 +101,7 @@ const { t } = useI18n(Astro.url);
 
 <script>
   import { gsap } from "../../../utils/animations";
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
 
   const smileImages = document.querySelectorAll(
     ".smiles-section>.smiles-content figure",
@@ -114,20 +116,6 @@ const { t } = useI18n(Astro.url);
     },
   });
 
-  //   tl.from(smileImages, {
-  //     y: -100,
-  //     opacity: 0,
-  //     duration: 1,
-  //     ease: "power3.out",
-  //     scrollTrigger: {
-  //       trigger: ".smiles-section",
-  //       start: "top center",
-  //       end: "top+=20% center",
-  //       scrub: true,
-  //       markers: true,
-  //     },
-  //   });
-
   smileImages.forEach((image) => {
     timeline.to(
       image,
@@ -138,4 +126,15 @@ const { t } = useI18n(Astro.url);
       0,
     );
   });
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#my-gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+    arrowPrev: false,
+    arrowNext: false,
+    counter: false,
+    zoom: false,
+  });
+  lightbox.init();
 </script>
