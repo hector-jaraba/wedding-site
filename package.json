@@ -23,11 +23,9 @@
     "photoswipe": "^5.4.3",
     "svelte": "^4.2.8",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5.3.3",
-    "vivus": "^0.4.6"
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@types/vivus": "^0.4.7",
     "prettier": "^3.1.1",
     "prettier-plugin-astro": "^0.12.3",
     "prettier-plugin-svelte": "^3.1.2"

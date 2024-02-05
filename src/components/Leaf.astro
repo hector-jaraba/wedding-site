@@ -26,15 +26,27 @@
     stroke: #d2a55d;
     stroke-width: 2;
     transition: fill 1s ease;
+    stroke-dashoffset: 23007;
+    stroke-dasharray: 23007;
+    animation: dash 40s linear forwards;
+    animation-play-state: paused;
   }
+
   #leaf-svg .path.ready {
     fill: #d2a55d;
     stroke-width: 0;
+    animation: none;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 </style>
 
 <script>
-  import Vivus from "vivus";
+  // import Vivus from "vivus";
 
   let options = {
     root: null,
@@ -42,20 +54,22 @@
     threshold: window.innerWidth > 768 ? 0.9 : 0.4,
   };
 
+  const pathSvg = document.querySelector<HTMLElement>("#leaf-svg .path");
+
   const handleReady = () => {
-    const pathSvg = document.querySelector("#leaf-svg .path");
     pathSvg?.classList.add("ready");
   };
 
-  const drawAnimation = new Vivus("leaf-svg", {
-    duration: 500,
-    type: "sync",
-    start: "manual",
-  });
+  // const drawAnimation = new Vivus("leaf-svg", {
+  //   duration: 500,
+  //   type: "sync",
+  //   start: "manual",
+  // });
 
   let observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      drawAnimation.play();
+    if (entries[0].isIntersecting && pathSvg) {
+      // drawAnimation.play();
+      pathSvg.style.animationPlayState = "running";
       const timeout = setTimeout(() => {
         handleReady();
         clearTimeout(timeout);

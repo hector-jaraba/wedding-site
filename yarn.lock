@@ -989,13 +989,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vivus@npm:^0.4.7":
-  version: 0.4.7
-  resolution: "@types/vivus@npm:0.4.7"
-  checksum: 6972fe94504c9b47c952d4b77c9ce2ac86e1db7220dfa5e5139a97d4682f93c810314af38feb8cc837753aff8a60462bd11e2c4f49f9e67a0ad784700c32afc2
-  languageName: node
-  linkType: hard
-
 "@ungap/structured-clone@npm:^1.0.0":
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
@@ -5924,13 +5917,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vivus@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "vivus@npm:0.4.6"
-  checksum: c7b9d403ec975f5eafaa6c70921262adadc8c43ee89d055f0c5ad33882bdedbf3ee9887eb141e75963d0fcee85cfa7cde73cf7e3dcef8e44eaaaaf4da096c46f
-  languageName: node
-  linkType: hard
-
 "volar-service-css@npm:0.0.17":
   version: 0.0.17
   resolution: "volar-service-css@npm:0.0.17"
@@ -6127,7 +6113,6 @@ __metadata:
     "@fontsource-variable/lora": "npm:^5.0.9"
     "@fontsource/arizonia": "npm:^5.0.18"
     "@studio-freight/lenis": "npm:^1.0.33"
-    "@types/vivus": "npm:^0.4.7"
     astro: "npm:^4.0.7"
     astro-critters: "npm:^2.0.11"
     gsap: "npm:^3.12.4"
@@ -6138,7 +6123,6 @@ __metadata:
     svelte: "npm:^4.2.8"
     tailwindcss: "npm:^3.4.0"
     typescript: "npm:^5.3.3"
-    vivus: "npm:^0.4.6"
   languageName: unknown
   linkType: soft
 
