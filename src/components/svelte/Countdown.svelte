@@ -16,9 +16,15 @@
   // Replace this with your target date
   const targetDate: Date = new Date("2024-07-05T19:00:00");
 
-  function calculateTimeRemaining(): void {
+  function calculateTime(): void {
     const now: Date = new Date();
-    const difference: number = targetDate.getTime() - now.getTime();
+    let difference: number = targetDate.getTime() - now.getTime();
+
+    if (difference < 0) {
+      hasFinish = true;
+      difference = Math.abs(difference); // Convert to positive to count forward
+    }
+
     days = Math.floor(difference / (1000 * 60 * 60 * 24));
     hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -26,12 +32,7 @@
   }
 
   function updateCountdown(): void {
-    calculateTimeRemaining();
-
-    if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
-      hasFinish = true;
-      clearInterval(countdown);
-    }
+    calculateTime();
   }
 
   onMount(() => {
@@ -45,11 +46,16 @@
 </script>
 
 <div
-  class="flex border-solid border-4 pb-2 pt-4 border-pink-custom md:px-12 sm:pt-8 sm:pb-6 justify-between text-pink-custom bg-white"
+  class="flex flex-col border-solid border-4 pb-2 pt-2 border-pink-custom md:px-12 sm:pt-2 sm:pb-6 text-pink-custom bg-white"
 >
   {#if hasFinish}
-    <p>Es hoy</p>
-  {:else}
+    <div
+      class="w-fit text-center -mt-11 px-4 mb-4 pt-1 bg-pink-custom self-center"
+    >
+      <span class="text-lg font-lora text-white">{t("countdown.finish")}</span>
+    </div>
+  {/if}
+  <div class="flex justify-between">
     <div class="inline-flex flex-initial flex-col items-center w-24">
       <span class="text-2xl md:text-6xl">{days}</span>
       <span class="text-lg md:text-xl sm:mt-4">{t("countdown.days")}</span>
@@ -66,8 +72,9 @@
       <span class="text-2xl md:text-6xl">{seconds}</span>
       <span class="text-lg md:text-xl sm:mt-4">{t("countdown.seconds")}</span>
     </div>
-  {/if}
+  </div>
 </div>
 
 <style>
+  /* Your styles here */
 </style>
